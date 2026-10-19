@@ -1,0 +1,249 @@
+<!doctype html>
+<html lang="es">
+<head>
+  <meta charset="utf-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1">
+  <meta name="description" content="Recursos de matemática para enseñanza básica, enseñanza media y preparación PAES M1 y M2.">
+  <title>Profe Boris | Matemática paso a paso</title>
+  <style>
+    :root { --ink:#172033; --muted:#647084; --line:#e4e8ef; --paper:#fff; --soft:#f6f8fb; --accent:#2457a7; --accent-soft:#edf3ff; }
+    * { box-sizing:border-box; }
+    html { scroll-behavior:smooth; }
+    body { margin:0; background:var(--paper); color:var(--ink); font:16px/1.55 system-ui,-apple-system,BlinkMacSystemFont,"Segoe UI",sans-serif; }
+    a { color:var(--accent); }
+    .wrap { width:min(1080px, calc(100% - 36px)); margin:auto; }
+    header { border-bottom:1px solid var(--line); background:#fff; position:sticky; top:0; z-index:5; }
+    .nav { display:flex; align-items:center; justify-content:space-between; gap:18px; min-height:70px; }
+    .brand { font-weight:800; font-size:1.18rem; letter-spacing:-.03em; text-decoration:none; color:var(--ink); }
+    .brand span { color:var(--accent); }
+    nav { display:flex; gap:18px; flex-wrap:wrap; }
+    nav a { text-decoration:none; color:var(--muted); font-size:.94rem; }
+    nav a:hover { color:var(--accent); }
+    .hero { padding:66px 0 48px; background:linear-gradient(180deg,#f8faff,white); }
+    .eyebrow { color:var(--accent); font-weight:750; text-transform:uppercase; letter-spacing:.09em; font-size:.76rem; }
+    h1 { font-size:clamp(2.3rem,6vw,4.25rem); line-height:1.04; letter-spacing:-.055em; max-width:760px; margin:12px 0 18px; }
+    .lead { color:var(--muted); font-size:1.13rem; max-width:650px; }
+    .actions { display:flex; flex-wrap:wrap; gap:12px; margin-top:26px; }
+    .btn { display:inline-flex; align-items:center; justify-content:center; padding:11px 16px; border-radius:10px; border:1px solid var(--line); text-decoration:none; font-weight:700; color:var(--ink); background:white; }
+    .btn.primary { background:var(--accent); border-color:var(--accent); color:white; }
+    section { padding:42px 0; }
+    .section-head { display:flex; align-items:end; justify-content:space-between; gap:20px; margin-bottom:22px; }
+    h2 { margin:0; font-size:clamp(1.6rem,3vw,2.15rem); letter-spacing:-.04em; }
+    .section-head p { margin:6px 0 0; color:var(--muted); }
+    .grid { display:grid; grid-template-columns:repeat(3,minmax(0,1fr)); gap:16px; }
+    .card { border:1px solid var(--line); border-radius:16px; padding:22px; background:#fff; display:flex; flex-direction:column; min-height:190px; }
+    .card .symbol { width:42px; height:42px; display:grid; place-items:center; background:var(--accent-soft); color:var(--accent); border-radius:12px; font-weight:800; margin-bottom:17px; }
+    .card h3 { margin:0 0 7px; font-size:1.15rem; }
+    .card p { color:var(--muted); margin:0 0 17px; }
+    .card a { margin-top:auto; text-decoration:none; font-weight:700; }
+    .filters { display:grid; grid-template-columns:1fr 210px 210px; gap:10px; margin:18px 0 20px; }
+    input, select { width:100%; padding:12px 13px; border:1px solid #d7dde7; border-radius:10px; background:white; color:var(--ink); font:inherit; }
+    .resources { display:grid; grid-template-columns:repeat(2,minmax(0,1fr)); gap:12px; }
+    .resource { border:1px solid var(--line); border-radius:12px; padding:16px; display:flex; gap:14px; align-items:flex-start; }
+    .file-icon { flex:none; border-radius:9px; padding:9px; background:var(--soft); font-size:1.1rem; }
+    .resource h3 { font-size:1rem; margin:0 0 4px; }
+    .resource p { color:var(--muted); margin:0; font-size:.9rem; }
+    .resource .meta { display:block; margin-top:8px; color:var(--muted); font-size:.8rem; }
+    .resource a { text-decoration:none; font-weight:700; }
+    .notice { padding:15px 17px; border-radius:12px; background:var(--soft); color:var(--muted); margin-top:18px; font-size:.92rem; }
+    .about { background:var(--soft); border-radius:18px; padding:28px; }
+    footer { border-top:1px solid var(--line); padding:26px 0 36px; color:var(--muted); font-size:.9rem; }
+    .empty { grid-column:1/-1; padding:22px; border:1px dashed #cbd3df; border-radius:12px; color:var(--muted); }
+    @media (max-width:760px) {
+      .nav { align-items:flex-start; flex-direction:column; padding:14px 0; }
+      nav { gap:12px; }
+      .hero { padding:48px 0 34px; }
+      .grid { grid-template-columns:1fr; }
+      .filters { grid-template-columns:1fr; }
+      .resources { grid-template-columns:1fr; }
+      .section-head { display:block; }
+    }
+  </style>
+</head>
+<body>
+<header>
+  <div class="wrap nav">
+    <a class="brand" href="#inicio">Profe <span>Boris</span></a>
+    <nav aria-label="Navegación principal">
+      <a href="#niveles">Niveles</a>
+      <a href="#paes">PAES M1/M2</a>
+      <a href="#recursos">Materiales</a>
+      <a href="#sobre-mi">Sobre el profe</a>
+    </nav>
+  </div>
+</header>
+
+<main id="inicio">
+  <section class="hero">
+    <div class="wrap">
+      <div class="eyebrow">Matemática paso a paso</div>
+      <h1>Entender matemática empieza con una buena explicación.</h1>
+      <p class="lead">Un espacio para aprender, practicar y descargar recursos de matemática para enseñanza básica, enseñanza media y preparación PAES.</p>
+      <div class="actions">
+        <a class="btn primary" href="#recursos">Explorar materiales</a>
+        <a class="btn" href="#paes">Ir a preparación PAES</a>
+      </div>
+    </div>
+  </section>
+
+  <section id="niveles">
+    <div class="wrap">
+      <div class="section-head">
+        <div><h2>Aprende por nivel</h2><p>Encuentra contenidos organizados según tu curso.</p></div>
+      </div>
+      <div class="grid">
+        <article class="card">
+          <div class="symbol">B</div><h3>Enseñanza básica</h3>
+          <p>Fracciones, números, proporcionalidad, geometría, álgebra y datos.</p>
+          <a href="#recursos" data-filter-level="basica">Ver recursos de básica →</a>
+        </article>
+        <article class="card">
+          <div class="symbol">M</div><h3>Enseñanza media</h3>
+          <p>Potencias, raíces, ecuaciones, funciones, estadística y probabilidad.</p>
+          <a href="#recursos" data-filter-level="media">Ver recursos de media →</a>
+        </article>
+        <article class="card">
+          <div class="symbol">PAES</div><h3>Preparación PAES</h3>
+          <p>Repaso de contenidos, ejercicios tipo prueba, guías y solucionarios para M1 y M2.</p>
+          <a href="#paes">Preparar la PAES →</a>
+        </article>
+      </div>
+    </div>
+  </section>
+
+  <section id="paes">
+    <div class="wrap">
+      <div class="section-head">
+        <div><h2>Preparación PAES</h2><p>Un espacio para organizar el estudio y practicar.</p></div>
+      </div>
+      <div class="grid">
+        <article class="card">
+          <div class="symbol">M1</div><h3>Competencia Matemática 1</h3>
+          <p>Práctica de habilidades y contenidos fundamentales para la prueba M1.</p>
+          <a href="#recursos" data-filter-exam="M1">Ver materiales M1 →</a>
+        </article>
+        <article class="card">
+          <div class="symbol">M2</div><h3>Competencia Matemática 2</h3>
+          <p>Recursos para profundizar en contenidos y habilidades de la prueba M2.</p>
+          <a href="#recursos" data-filter-exam="M2">Ver materiales M2 →</a>
+        </article>
+        <article class="card">
+          <div class="symbol">✓</div><h3>Ensayos y diagnóstico</h3>
+          <p>Registra resultados, identifica temas por reforzar y planifica la práctica.</p>
+          <a href="#recursos" data-filter-category="Ensayo">Ver ensayos →</a>
+        </article>
+      </div>
+    </div>
+  </section>
+
+  <section id="recursos">
+    <div class="wrap">
+      <div class="section-head">
+        <div><h2>Biblioteca de recursos</h2><p>Busca por tema, nivel, prueba o tipo de material.</p></div>
+      </div>
+      <div class="filters">
+        <input id="search" type="search" placeholder="Buscar: porcentajes, funciones..." aria-label="Buscar recursos">
+        <select id="level" aria-label="Filtrar por nivel">
+          <option value="">Todos los niveles</option>
+          <option value="basica">Enseñanza básica</option>
+          <option value="media">Enseñanza media</option>
+          <option value="paes">PAES</option>
+        </select>
+        <select id="category" aria-label="Filtrar por tipo de material">
+          <option value="">Todos los materiales</option>
+          <option value="Guía">Guías</option>
+          <option value="Ejercicio">Ejercicios</option>
+          <option value="Solucionario">Solucionarios</option>
+          <option value="Presentación">Presentaciones</option>
+          <option value="Ensayo">Ensayos</option>
+        </select>
+      </div>
+      <div class="resources" id="resource-list" aria-live="polite"></div>
+      <div class="notice">Los recursos de esta primera versión son ejemplos de estructura. Reemplaza sus enlaces por tus archivos reales antes de compartirlos con estudiantes.</div>
+    </div>
+  </section>
+
+  <section id="sobre-mi">
+    <div class="wrap">
+      <div class="about">
+        <div class="eyebrow">Sobre este espacio</div>
+        <h2 style="margin-top:8px">¡Hola! Soy el Profe Boris.</h2>
+        <p>Este sitio reúne explicaciones y materiales de apoyo para aprender matemática con confianza, practicar paso a paso y preparar evaluaciones.</p>
+        <p style="margin-bottom:0;color:var(--muted)">Puedes personalizar esta presentación, añadir tus datos profesionales y agregar una forma de contacto cuando lo necesites.</p>
+      </div>
+    </div>
+  </section>
+</main>
+
+<footer>
+  <div class="wrap">© <span id="year"></span> Profe Boris · Recursos para aprender matemática.</div>
+</footer>
+
+<script>
+  // Agrega recursos aquí. Cambia "archivo" por una ruta dentro de materiales/
+  // o por un enlace público de Google Drive.
+  const resources = [
+    {title:"Guía de fracciones", topic:"Operaciones con fracciones", level:"basica", category:"Guía", exam:"", course:"7° básico", file:"#", description:"Guía de práctica con ejercicios graduados."},
+    {title:"Ejercicios de proporcionalidad", topic:"Razones y proporciones", level:"basica", category:"Ejercicio", exam:"", course:"7° y 8° básico", file:"#", description:"Ejercicios para aplicar razones y proporciones."},
+    {title:"Potencias y raíces", topic:"Propiedades y operatoria", level:"media", category:"Guía", exam:"", course:"1° medio", file:"#", description:"Resumen de propiedades y ejercicios de práctica."},
+    {title:"Funciones cuadráticas", topic:"Gráfica, vértice y raíces", level:"media", category:"Presentación", exam:"", course:"3° y 4° medio", file:"#", description:"Presentación para estudiar los elementos de la parábola."},
+    {title:"Porcentajes tipo PAES", topic:"Porcentaje, variación porcentual", level:"paes", category:"Ejercicio", exam:"M1", course:"PAES M1", file:"#", description:"Problemas de aplicación con alternativas."},
+    {title:"Ensayo de práctica M1", topic:"Diagnóstico general", level:"paes", category:"Ensayo", exam:"M1", course:"PAES M1", file:"#", description:"Reemplaza este ejemplo por tu ensayo autorizado."},
+    {title:"Álgebra y funciones M2", topic:"Expresiones y funciones", level:"paes", category:"Guía", exam:"M2", course:"PAES M2", file:"#", description:"Material de repaso para profundizar contenidos."},
+    {title:"Solucionario de ejercicios M2", topic:"Desarrollo paso a paso", level:"paes", category:"Solucionario", exam:"M2", course:"PAES M2", file:"#", description:"Añade aquí las soluciones desarrolladas."}
+  ];
+
+  const labels = {basica:"Enseñanza básica", media:"Enseñanza media", paes:"PAES"};
+  const list = document.getElementById("resource-list");
+  const search = document.getElementById("search");
+  const level = document.getElementById("level");
+  const category = document.getElementById("category");
+
+  function render() {
+    const q = search.value.trim().toLowerCase();
+    const filtered = resources.filter(r => {
+      const text = [r.title,r.topic,r.course,r.description,r.exam,r.category].join(" ").toLowerCase();
+      return (!q || text.includes(q)) && (!level.value || r.level === level.value) && (!category.value || r.category === category.value);
+    });
+    list.innerHTML = "";
+    if (!filtered.length) {
+      list.innerHTML = '<div class="empty">No encontramos recursos con esos filtros. Prueba con otra palabra o cambia los filtros.</div>';
+      return;
+    }
+    filtered.forEach(r => {
+      const item = document.createElement("article");
+      item.className = "resource";
+      const icon = document.createElement("div");
+      icon.className = "file-icon";
+      icon.textContent = r.category === "Presentación" ? "▤" : r.category === "Ensayo" ? "✓" : "↗";
+      const body = document.createElement("div");
+      const title = document.createElement("h3");
+      title.textContent = r.title;
+      const desc = document.createElement("p");
+      desc.textContent = r.description;
+      const meta = document.createElement("span");
+      meta.className = "meta";
+      meta.textContent = [r.course, r.category, r.exam].filter(Boolean).join(" · ");
+      const link = document.createElement("a");
+      link.href = r.file;
+      link.textContent = r.file === "#" ? "Añadir archivo →" : "Abrir recurso →";
+      if (r.file === "#") {
+        link.addEventListener("click", e => { e.preventDefault(); alert("Este es un recurso de ejemplo. Edita la lista resources en index.html y agrega el enlace de tu archivo."); });
+      } else {
+        link.target = "_blank";
+        link.rel = "noopener noreferrer";
+      }
+      body.append(title, desc, meta, document.createElement("br"), link);
+      item.append(icon, body);
+      list.append(item);
+    });
+  }
+  [search,level,category].forEach(el => el.addEventListener("input", render));
+  document.querySelectorAll("[data-filter-level]").forEach(a => a.addEventListener("click", () => { level.value = a.dataset.filterLevel; render(); }));
+  document.querySelectorAll("[data-filter-exam]").forEach(a => a.addEventListener("click", () => { level.value = "paes"; search.value = a.dataset.filterExam; render(); }));
+  document.querySelectorAll("[data-filter-category]").forEach(a => a.addEventListener("click", () => { level.value = "paes"; category.value = a.dataset.filterCategory; render(); }));
+  document.getElementById("year").textContent = new Date().getFullYear();
+  render();
+</script>
+</body>
+</html>
