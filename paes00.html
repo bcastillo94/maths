@@ -1,0 +1,254 @@
+<!doctype html>
+<html lang="es">
+<head>
+<meta charset="utf-8">
+<meta name="viewport" content="width=device-width, initial-scale=1">
+<meta name="description" content="Miniensayo interactivo PAES Matemática - Profe Boris">
+<title>Miniensayo PAES | Profe Boris</title>
+<link rel="preconnect" href="https://fonts.googleapis.com">
+<link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+<link href="https://fonts.googleapis.com/css2?family=Newsreader:opsz,wght@6..72,500;6..72,600&family=Instrument+Sans:wght@400;500;600&display=swap" rel="stylesheet">
+<style>
+  :root { --ink:#3B2A22; --muted:#5E4A3C; --line:#E4D5BC; --paper:#FBF9F5; --soft:#F3EEE4; --card:#FFFCF6; --burdeo:#762F40; --burdeo-dark:#5A2030; --gold:#B8892B; --gold-soft:#E8C873; --gold-text:#F0D9A0; --success:#2d6a4f; --error:#9b2226; }
+  * { box-sizing:border-box; }
+  body { margin:0; background:var(--paper); color:var(--ink); font:16px/1.6 'Instrument Sans',system-ui,sans-serif; }
+  a { color:inherit; text-decoration:none; }
+  .wrap { width:min(900px, calc(100% - 40px)); margin:auto; }
+  h1,h2 { font-family:'Newsreader',Georgia,serif; font-weight:500; margin:0; }
+  .plaid { height:14px; background:repeating-linear-gradient(90deg,#5A2030 0 28px,#F3EEE4 28px 34px,#B8892B 34px 40px,#F3EEE4 40px 46px); }
+  header { background:var(--burdeo); color:#FFFCF6; padding:16px 0; }
+  .nav-bar { display:flex; justify-content:space-between; align-items:center; }
+  .brand { font-family:'Newsreader',Georgia,serif; font-size:22px; font-weight:600; }
+  .back-link { font-size:14px; color:var(--gold-text); font-weight:600; }
+  .back-link:hover { text-decoration:underline; }
+  main { padding:40px 0 60px; }
+  .quiz-header { margin-bottom:32px; text-align:center; }
+  .quiz-header .eyebrow { font-size:12px; letter-spacing:.14em; text-transform:uppercase; color:var(--burdeo); font-weight:600; margin-bottom:8px; }
+  .quiz-header h1 { font-size:32px; margin-bottom:8px; }
+  .quiz-header p { color:var(--muted); font-size:16px; margin:0; }
+  
+  .question-card { background:var(--card); border:1px solid var(--line); border-radius:16px; padding:24px; margin-bottom:20px; box-shadow:0 2px 0 var(--line); }
+  .q-number { font-size:13px; font-weight:600; color:var(--burdeo); margin-bottom:6px; letter-spacing:.04em; }
+  .q-text { font-size:17px; font-weight:500; margin-bottom:16px; color:var(--ink); }
+  
+  .options { display:grid; gap:10px; }
+  .option-btn { width:100%; text-align:left; background:var(--soft); border:1px solid var(--line); padding:12px 16px; border-radius:10px; font:inherit; color:var(--ink); cursor:pointer; transition:all 0.2s; display:flex; align-items:center; gap:10px; }
+  .option-btn:hover:not(:disabled) { border-color:var(--burdeo); background:#f0e5d8; }
+  .option-btn.correct { background:#d8f3dc !important; border-color:var(--success) !important; color:#081c15; font-weight:600; }
+  .option-btn.incorrect { background:#f8d7da !important; border-color:var(--error) !important; color:#58151c; }
+  .option-btn:disabled { cursor:default; }
+
+  .submit-container { text-align:center; margin-top:32px; }
+  .btn-submit { background:var(--burdeo); color:#FFFCF6; border:none; padding:14px 32px; font-size:16px; font-weight:600; border-radius:12px; cursor:pointer; transition:background 0.2s; }
+  .btn-submit:hover { background:var(--burdeo-dark); }
+
+  .results-box { display:none; background:var(--card); border:2px solid var(--burdeo); border-radius:18px; padding:32px; text-align:center; margin-top:32px; animation:fadeIn 0.4s ease-in-out; }
+  .results-box h2 { font-size:28px; color:var(--burdeo); margin-bottom:12px; }
+  .score-display { font-size:42px; font-family:'Newsreader',serif; font-weight:600; color:var(--ink); margin:16px 0; }
+  .score-desc { color:var(--muted); font-size:15px; margin-bottom:20px; }
+  .btn-retry { background:var(--gold-soft); color:var(--ink); border:none; padding:10px 24px; font-weight:600; border-radius:10px; cursor:pointer; }
+  
+  @keyframes fadeIn { from { opacity:0; transform:translateY(10px); } to { opacity:1; transform:translateY(0); } }
+</style>
+</head>
+<body>
+
+<header>
+  <div class="wrap nav-bar">
+    <div class="brand">Profe Boris</div>
+    <a class="back-link" href="index.html">← Volver al inicio</a>
+  </div>
+</header>
+<div class="plaid"></div>
+
+<main class="wrap">
+  <div class="quiz-header">
+    <div class="eyebrow">Ensayo de Prueba M1</div>
+    <h1>Miniensayo PAES (10 Preguntas)</h1>
+    <p>Selecciona la alternativa correcta para cada ejercicio. Al finalizar, obtendrás tu puntaje estimado.</p>
+  </div>
+
+  <div id="quiz-container"></div>
+
+  <div class="submit-container" id="submit-area">
+    <button class="btn-submit" id="check-btn" onclick="evaluateQuiz()">Ver mis resultados y puntaje</button>
+  </div>
+
+  <div class="results-box" id="results-box">
+    <h2>¡Evaluación completada!</h2>
+    <div class="score-desc" id="score-text"></div>
+    <div class="score-display" id="score-number"></div>
+    <button class="btn-retry" onclick="resetQuiz()">Intentar nuevamente</button>
+  </div>
+</main>
+
+<script>
+  // Banco de 10 preguntas de ejemplo tipo PAES M1
+  const questions = [
+    {
+      id: 1,
+      text: "¿Cuál es el valor de la expresión: 3 + 2 · (5 - 3)² ?",
+      options: ["A) 11", "B) 7", "C) 19", "D) 25"],
+      correct: 0 // Índice de la opción correcta (A=0, B=1, C=2, D=3)
+    },
+    {
+      id: 2,
+      text: "Si el 25% de un número es 40, ¿cuál es el número?",
+      options: ["A) 100", "B) 160", "C) 80", "D) 200"],
+      correct: 1
+    },
+    {
+      id: 3,
+      text: "¿Cuál de los siguientes números es irracional?",
+      options: ["A) √16", "B) 3,1416", "C) √5", "D) 15/4"],
+      correct: 2
+    },
+    {
+      id: 4,
+      text: "Al resolver la ecuación 3x - 5 = 10 + x, el valor de x es:",
+      options: ["A) 2,5", "B) 5", "C) 7,5", "D) 15"],
+      correct: 2
+    },
+    {
+      id: 5,
+      text: "Si se simplifica la fracción algebraica (x² - 4) / (x - 2) para x ≠ 2, se obtiene:",
+      options: ["A) x - 2", "B) 1", "C) x + 2", "D) 2x"],
+      correct: 2
+    },
+    {
+      id: 6,
+      text: "¿Cuál es la pendiente de la recta que pasa por los puntos (1, 2) y (3, 8)?",
+      options: ["A) 2", "B) 3", "C) 4", "D) 6"],
+      correct: 1
+    },
+    {
+      id: 7,
+      text: "Un artículo cuesta $12.000 y sufre un descuento del 15%. ¿Cuál es su precio final?",
+      options: ["A) $10.200", "B) $10.800", "C) $9.500", "D) $11.000"],
+      correct: 0
+    },
+    {
+      id: 8,
+      text: "Si log₂(x) = 3, ¿cuál es el valor de x?",
+      options: ["A) 6", "B) 8", "C) 9", "D) 32"],
+      correct: 1
+    },
+    {
+      id: 9,
+      text: "En un curso de 40 estudiantes, el 60% son mujeres. ¿Cuántos varones hay en el curso?",
+      options: ["A) 16", "B) 24", "C) 18", "D) 14"],
+      correct: 0
+    },
+    {
+      id: 10,
+      text: "¿Cuál es la probabilidad de obtener un número primo al lanzar un dado común de 6 caras?",
+      options: ["A) 1/6", "B) 1/3", "C) 1/2", "D) 2/3"],
+      correct: 2
+    }
+  ];
+
+  const container = document.getElementById("quiz-container");
+  const userAnswers = {};
+
+  function loadQuiz() {
+    container.innerHTML = "";
+    questions.forEach((q, index) => {
+      const card = document.createElement("div");
+      card.className = "question-card";
+      
+      const num = document.createElement("div");
+      num.className = "q-number";
+      num.textContent = `PREGUNTA ${index + 1} DE 10`;
+      
+      const text = document.createElement("div");
+      text.className = "q-text";
+      text.textContent = q.text;
+      
+      const optionsDiv = document.createElement("div");
+      optionsDiv.className = "options";
+      
+      q.options.forEach((opt, optIndex) => {
+        const btn = document.createElement("button");
+        btn.className = "option-btn";
+        btn.textContent = opt;
+        btn.dataset.question = index;
+        btn.dataset.option = optIndex;
+        
+        btn.addEventListener("click", () => selectOption(index, optIndex, optionsDiv));
+        optionsDiv.appendChild(btn);
+      });
+      
+      card.append(num, text, optionsDiv);
+      container.appendChild(card);
+    });
+  }
+
+  function selectOption(qIndex, optIndex, optionsDiv) {
+    userAnswers[qIndex] = optIndex;
+    const buttons = optionsDiv.querySelectorAll(".option-btn");
+    buttons.forEach((b, idx) => {
+      if (idx === optIndex) {
+        b.style.background = "var(--soft)";
+        b.style.borderColor = "var(--burdeo)";
+        b.style.fontWeight = "600";
+      } else {
+        b.style.background = "var(--soft)";
+        b.style.borderColor = "var(--line)";
+        b.style.fontWeight = "400";
+      }
+    });
+  }
+
+  function evaluateQuiz() {
+    if (Object.keys(userAnswers).length < questions.length) {
+      alert("Por favor responde todas las preguntas antes de ver los resultados.");
+      return;
+    }
+
+    let correctCount = 0;
+    questions.forEach((q, index) => {
+      const card = container.children[index];
+      const buttons = card.querySelectorAll(".option-btn");
+      const userChoice = userAnswers[index];
+
+      buttons.forEach((b, optIndex) => {
+        b.disabled = true;
+        if (optIndex === q.correct) {
+          b.classList.add("correct");
+        } else if (optIndex === userChoice && userChoice !== q.correct) {
+          b.classList.add("incorrect");
+        }
+      });
+
+      if (userChoice === q.correct) {
+        correctCount++;
+      }
+    });
+
+    // Cálculo proporcional simulado a la escala PAES (150 a 1000 puntos)
+    // 0 correctas = 150 pts, 10 correctas = 1000 pts
+    const simulatedScore = Math.round(150 + (correctCount / 10) * 850);
+
+    document.getElementById("submit-area").style.display = "none";
+    const resultsBox = document.getElementById("results-box");
+    resultsBox.style.display = "block";
+    
+    document.getElementById("score-text").textContent = `Obtuviste ${correctCount} respuestas correctas de un total de 10.`;
+    document.getElementById("score-number">).textContent = `${simulatedScore} puntos`;
+    
+    window.scrollTo({ top: resultsBox.offsetTop - 50, behavior: 'smooth' });
+  }
+
+  function resetQuiz() {
+    Object.keys(userAnswers).forEach(key => delete userAnswers[key]);
+    document.getElementById("submit-area").style.display = "block";
+    document.getElementById("results-box").style.display = "none";
+    loadQuiz();
+    window.scrollTo({ top: 0, behavior: 'smooth' });
+  }
+
+  loadQuiz();
+</script>
+
+</body>
+</html>
