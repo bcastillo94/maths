@@ -72,6 +72,23 @@
   footer { color:#F6EEE0; font-size:14px; }
   footer .bar { background:var(--ink); }
   footer .wrap { padding:26px 0; display:flex; flex-wrap:wrap; justify-content:space-between; gap:12px; }
+  /* Tarjetas MIDDLE / HIGH / PAES con paneles desplegables */
+  .levels { display:grid; grid-template-columns:repeat(auto-fit,minmax(220px,1fr)); gap:16px; }
+  .lv { display:flex; flex-direction:column; gap:6px; text-align:left; font:inherit; color:var(--ink); background:var(--card); border:1px solid var(--line); border-radius:18px; padding:28px; box-shadow:0 2px 0 var(--line); cursor:pointer; }
+  .lv:hover { border-color:var(--burdeo); }
+  .lv small { font-size:13px; color:var(--burdeo); font-weight:600; letter-spacing:.04em; }
+  .lv h3 { font-size:30px; letter-spacing:.08em; }
+  .lv .go { margin-top:6px; color:var(--burdeo); font-weight:600; }
+  .lv .go::after { content:" ▾"; }
+  .lv.on { background:var(--burdeo); border-color:var(--burdeo); color:#FFFCF6; }
+  .lv.on small, .lv.on .go { color:var(--gold-text); }
+  .lv.on .go::after { content:" ▴"; }
+  .panel { margin-top:16px; background:var(--soft); border:1px solid var(--line); border-radius:18px; padding:22px; }
+  .panel[hidden] { display:none; }
+  .opts { display:grid; grid-template-columns:repeat(auto-fit,minmax(200px,1fr)); gap:12px; }
+  .opt { display:block; background:var(--card); border:1px solid var(--line); border-radius:14px; padding:16px 18px; font-weight:600; color:var(--burdeo); }
+  .opt:hover { border-color:var(--burdeo); }
+  .opt small { display:block; color:var(--muted); font-weight:400; font-size:13px; margin-top:2px; }
   @media (max-width:760px) {
     .filters, .resources { grid-template-columns:1fr; }
     .hero { padding:44px 0 32px; }
@@ -112,15 +129,35 @@
   <section id="cursos">
     <div class="wrap">
       <h2>Primero, tu curso</h2>
-      <p class="sub">Cada curso tiene sus temas, guías y tareas.</p>
-      <div class="grid">
-        <a class="card" href="basico-7.html"><small>BÁSICA · PÁGINA LISTA</small><h3>7° básico</h3><span class="go">Ver los 4 ejes →</span></a>
-        <a class="card" href="basico-8.html"><small>BÁSICA · PÁGINA LISTA</small><h3>8° básico</h3><span class="go">Ver los 4 ejes →</span></a>
-        <a class="card" href="#recursos" data-filter-level="media"><small>MEDIA</small><h3>1° medio</h3><span class="go">Ver recursos →</span></a>
-        <a class="card" href="#recursos" data-filter-level="media"><small>MEDIA</small><h3>2° medio</h3><span class="go">Ver recursos →</span></a>
-        <a class="card" href="#recursos" data-filter-level="media"><small>MEDIA</small><h3>3° medio</h3><span class="go">Ver recursos →</span></a>
-        <a class="card" href="#recursos" data-filter-level="media"><small>MEDIA</small><h3>4° medio</h3><span class="go">Ver recursos →</span></a>
-        <a class="card wine" href="#paes"><small>PREPARACIÓN</small><h3>PAES</h3><span class="go">Ir a ensayos →</span></a>
+      <p class="sub">Elige tu nivel y luego tu curso.</p>
+      <div class="levels">
+        <button type="button" class="lv" aria-expanded="false" aria-controls="p-middle"><small>7° Y 8° BÁSICO</small><h3>MIDDLE</h3><span class="go">Ver cursos</span></button>
+        <button type="button" class="lv" aria-expanded="false" aria-controls="p-high"><small>1° A 4° MEDIO</small><h3>HIGH</h3><span class="go">Ver cursos</span></button>
+        <button type="button" class="lv" aria-expanded="false" aria-controls="p-paes"><small>PREPARACIÓN</small><h3>PAES</h3><span class="go">Ver opciones</span></button>
+      </div>
+
+      <div class="panel" id="p-middle" hidden>
+        <div class="opts">
+          <a class="opt" href="basico-7.html">7° básico<small>Ver los 4 ejes →</small></a>
+          <a class="opt" href="basico-8.html">8° básico<small>Ver los 4 ejes →</small></a>
+        </div>
+      </div>
+
+      <div class="panel" id="p-high" hidden>
+        <div class="opts">
+          <a class="opt" href="#recursos" data-filter-level="media">1° medio<small>Ver recursos →</small></a>
+          <a class="opt" href="#recursos" data-filter-level="media">2° medio<small>Ver recursos →</small></a>
+          <a class="opt" href="#recursos" data-filter-level="media">3° medio<small>Ver recursos →</small></a>
+          <a class="opt" href="#recursos" data-filter-level="media">4° medio<small>Ver recursos →</small></a>
+        </div>
+      </div>
+
+      <div class="panel" id="p-paes" hidden>
+        <div class="opts">
+          <a class="opt" href="./tm2026.pdf" target="_blank" rel="noopener noreferrer">Ver temario<small>Abrir el PDF →</small></a>
+          <a class="opt" href="#recursos" data-filter-level="paes">Estudiar<small>Guías y ejercicios PAES →</small></a>
+          <a class="opt" href="#paes">Practicar PAES (ensayos)<small>Ensayos y miniensayo →</small></a>
+        </div>
       </div>
     </div>
   </section>
@@ -189,7 +226,7 @@
   // (por ejemplo "./mi-guia.pdf") o por un enlace público de Google Drive.
   const resources = [
     {title: "Temario PAES Regular M1", topic: "Temario PAES 2027", level: "paes", category: "Guía", exam: "M1", course: "4° medio", file: "./tm2026.pdf", description: "Documento de contenidos para preparar la PAES M1."},
-    {title:"ETP", topic:"ETP", level:"basica", category:"Ejercicio", exam:"", course:"7° y 8° básico", file:" ./etp1.pdf", description:"ETP 1, vamos con todo."},
+    {title:"ETP", topic:"ETP", level:"basica", category:"Ejercicio", exam:"", course:"7° y 8° básico", file:"./etp1.pdf", description:"ETP 1, vamos con todo."},
     {title:"Potencias y raíces", topic:"Propiedades y operatoria", level:"media", category:"Guía", exam:"", course:"1° medio", file:"#", description:"Resumen de propiedades y ejercicios de práctica."},
     {title:"Funciones cuadráticas", topic:"Gráfica, vértice y raíces", level:"media", category:"Presentación", exam:"", course:"3° y 4° medio", file:"#", description:"Presentación para estudiar los elementos de la parábola."},
     {title:"Porcentajes tipo PAES", topic:"Porcentaje, variación porcentual", level:"paes", category:"Ejercicio", exam:"M1", course:"PAES M1", file:"#", description:"Problemas de aplicación con alternativas."},
@@ -249,6 +286,21 @@
   document.querySelectorAll("[data-filter-level]").forEach(a => a.addEventListener("click", () => { resetFilters(); level.value = a.dataset.filterLevel; render(); }));
   document.querySelectorAll("[data-filter-exam]").forEach(a => a.addEventListener("click", () => { resetFilters(); level.value = "paes"; search.value = a.dataset.filterExam; render(); }));
   document.querySelectorAll("[data-filter-category]").forEach(a => a.addEventListener("click", () => { resetFilters(); level.value = "paes"; category.value = a.dataset.filterCategory; render(); }));
+
+  // Tarjetas MIDDLE / HIGH / PAES: despliegan su panel y cierran los demás
+  document.querySelectorAll(".lv").forEach(function(b){
+    b.addEventListener("click", function(){
+      var abierto = b.getAttribute("aria-expanded") === "true";
+      document.querySelectorAll(".lv").forEach(function(x){ x.setAttribute("aria-expanded","false"); x.classList.remove("on"); });
+      document.querySelectorAll(".panel").forEach(function(p){ p.hidden = true; });
+      if (!abierto) {
+        b.setAttribute("aria-expanded","true");
+        b.classList.add("on");
+        document.getElementById(b.getAttribute("aria-controls")).hidden = false;
+      }
+    });
+  });
+
   document.getElementById("year").textContent = new Date().getFullYear();
   render();
 </script>
