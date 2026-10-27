@@ -1,0 +1,272 @@
+<!doctype html>
+<html lang="es">
+<head>
+<meta charset="utf-8">
+<meta name="viewport" content="width=device-width, initial-scale=1">
+<title>Profe Boris | Matemática 8° básico</title>
+<link rel="preconnect" href="https://fonts.googleapis.com">
+<link href="https://fonts.googleapis.com/css2?family=Newsreader:opsz,wght@6..72,500;6..72,600&family=Instrument+Sans:wght@400;500;600&display=swap" rel="stylesheet">
+<style>
+body{margin:0}
+html{scroll-behavior:smooth}
+a{color:inherit;text-decoration:none}
+.h{font-family:'Newsreader',Georgia,serif;font-weight:500;margin:0}
+.plaid{height:14px;background:repeating-linear-gradient(90deg,#5A2030 0 28px,#F3EEE4 28px 34px,#B8892B 34px 40px,#F3EEE4 40px 46px)}
+.uh{display:flex;align-items:center;gap:10px;margin:22px 0 6px;font-size:13px;letter-spacing:.08em;text-transform:uppercase;color:#762F40;font-weight:600}
+.uh:first-child{margin-top:0}
+.un{width:24px;height:24px;border-radius:50%;background:#762F40;color:#FFFCF6;display:inline-flex;align-items:center;justify-content:center;font-size:12px;letter-spacing:0}
+.sl{display:flex;align-items:flex-start;gap:10px;width:100%;box-sizing:border-box;padding:8px 12px;border:0;border-radius:10px;background:transparent;font:inherit;font-size:15px;color:#5E4A3C;text-align:left;cursor:pointer}
+.sl:hover{background:#F3EEE4;color:#762F40}
+.sl i{flex:none;width:8px;height:8px;margin-top:8px;border-radius:50%;background:#D9C6A5}
+.sl.on{background:#762F40;color:#FFFCF6}
+.sl.on i{background:#E8C873}
+.box{border-radius:14px;padding:16px 18px;margin-top:16px}
+.lab{font-size:12px;letter-spacing:.1em;text-transform:uppercase;font-weight:600;margin-bottom:6px}
+.nv{border:1px solid #E4D5BC;background:#FFFCF6;border-radius:12px;padding:10px 16px;font:inherit;font-weight:600;color:#762F40;cursor:pointer}
+.nv:hover{border-color:#762F40}
+.lesson[hidden]{display:none}
+@media (min-width:900px){.side{position:sticky;top:16px;max-height:calc(100vh - 32px);overflow:auto}}
+</style>
+</head>
+<body>
+<div style="font-family:'Instrument Sans',system-ui,sans-serif;color:#3B2A22;background:#FBF9F5;line-height:1.6">
+<header style="background:#762F40;color:#FFFCF6">
+<div style="max-width:1120px;margin:0 auto;padding:14px 28px;display:flex;flex-wrap:wrap;gap:16px;align-items:center;justify-content:space-between">
+<a href="index.html" style="display:flex;align-items:center;gap:12px"><img src="./alm.png" alt="Escudo del colegio" style="height:48px;width:auto"><span class="h" style="font-size:25px">Profe Boris</span></a>
+<nav aria-label="Principal" style="display:flex;flex-wrap:wrap;gap:24px;font-size:15px"><a href="index.html">Cursos</a><a href="index.html#paes">PAES</a><a href="index.html#recursos">Materiales</a></nav>
+</div><div class="plaid"></div></header>
+<div style="max-width:1120px;margin:0 auto;padding:28px 28px 0;font-size:14px;color:#5E4A3C"><a href="index.html" style="color:#762F40;font-weight:600">Cursos</a> / Enseñanza básica / 8° básico</div>
+<div style="max-width:1120px;margin:0 auto;padding:20px 28px 56px;display:flex;flex-wrap:wrap;gap:32px;align-items:flex-start">
+<aside class="side" aria-label="Contenidos de 8° básico" style="flex:1 1 250px;max-width:300px"><div class="uh"><span class="un">1</span>Números</div><a class="sl" href="#L1"><i></i><span>Números enteros: multiplicación y división</span></a><a class="sl" href="#L2"><i></i><span>Números racionales</span></a><a class="sl" href="#L3"><i></i><span>Potencias</span></a><a class="sl" href="#L4"><i></i><span>Raíz cuadrada</span></a><a class="sl" href="#L5"><i></i><span>Variaciones porcentuales</span></a><div class="uh"><span class="un">2</span>Álgebra y funciones</div><a class="sl" href="#L6"><i></i><span>Expresiones algebraicas</span></a><a class="sl" href="#L7"><i></i><span>Ecuaciones</span></a><a class="sl" href="#L8"><i></i><span>Inecuaciones</span></a><a class="sl" href="#L9"><i></i><span>Concepto y representación de una función</span></a><a class="sl" href="#L10"><i></i><span>Función lineal</span></a><a class="sl" href="#L11"><i></i><span>Función afín</span></a><div class="uh"><span class="un">3</span>Geometría</div><a class="sl" href="#L12"><i></i><span>Teorema de Pitágoras</span></a><a class="sl" href="#L13"><i></i><span>Transformaciones isométricas</span></a><a class="sl" href="#L14"><i></i><span>Composición de transformaciones y transformaciones en el espacio</span></a><a class="sl" href="#L15"><i></i><span>Área y volumen de prismas y cilindros</span></a><div class="uh"><span class="un">4</span>Probabilidad y estadística</div><a class="sl" href="#L16"><i></i><span>Representaciones gráficas</span></a><a class="sl" href="#L17"><i></i><span>Medidas de posición</span></a><a class="sl" href="#L18"><i></i><span>Principio multiplicativo</span></a><a class="sl" href="#L19"><i></i><span>Cálculo de probabilidades</span></a></aside>
+<main id="contenido" style="flex:3 1 480px;min-width:0">
+<article class="lesson" id="L1" hidden>
+<div style="display:flex;flex-wrap:wrap;gap:8px 16px;align-items:center;background:#F3EEE4;border-radius:12px;padding:10px 16px;font-size:13px;letter-spacing:.08em;text-transform:uppercase;font-weight:600;color:#762F40"><span>Unidad 1 · Números</span><span style="color:#5E4A3C;letter-spacing:.04em">Tema 1 de 19 · OA 1</span></div>
+<h1 class="h" style="font-size:clamp(32px,4.4vw,46px);line-height:1.1;margin:22px 0 12px">Números enteros: multiplicación y división</h1>
+<p style="font-size:18px;color:#5E4A3C;margin:0">Multiplicar y dividir números enteros sigue los mismos procedimientos que con los naturales, más una regla para decidir el signo del resultado.</p>
+<h2 class="h" style="font-size:26px;margin:28px 0 10px">Conceptos clave</h2>
+<ul style="margin:0;padding-left:20px"><li style="margin:0 0 10px"><b>Multiplicación.</b> Se multiplican los valores absolutos y el signo se decide con la regla de los signos: (+)·(+) = +, (−)·(−) = +, (+)·(−) = − y (−)·(+) = −.</li><li style="margin:0 0 10px"><b>Multiplicar por −1.</b> Da el opuesto del número: (−1) · a = −a.</li><li style="margin:0 0 10px"><b>División.</b> Se divide como en los naturales y se usa la misma regla de los signos. La división por 0 no está definida.</li><li style="margin:0 0 10px"><b>Propiedades.</b> La multiplicación es conmutativa y asociativa, y cumple la distributiva: a(b + c) = ab + ac.</li></ul>
+<div class="box" style="background:#FFFCF6;border:1px solid #E4D5BC"><div class="lab" style="color:#762F40">Ejemplos</div><div>(−4) · 5 = −20</div><div>(−6) · (−3) = 18</div><div>(−24) ÷ 6 = −4</div><div>(−15) ÷ (−5) = 3</div></div>
+<div class="box" style="background:#F3EEE4"><div class="lab" style="color:#762F40">Un ejemplo de la vida diaria</div>El saldo de una cuenta baja $2.500 cada día durante 4 días: (−2.500) · 4 = −$10.000 en total.</div>
+<div class="box" style="background:#FFF7E0;border:1px solid #E2C36B"><div class="lab" style="color:#7A5A12">Dato curioso</div><span class="fa">El matemático indio Brahmagupta, en el siglo VII, fue de los primeros en escribir reglas para operar con números negativos y con el cero.</span><span class="fa" hidden>El 0 es el único número que no cambia de valor al multiplicarlo por −1.</span></div>
+<div style="display:flex;flex-wrap:wrap;justify-content:space-between;gap:12px;margin-top:28px"><span></span><a class="nv" href="#L2">Números racionales →</a></div>
+</article>
+<article class="lesson" id="L2" hidden>
+<div style="display:flex;flex-wrap:wrap;gap:8px 16px;align-items:center;background:#F3EEE4;border-radius:12px;padding:10px 16px;font-size:13px;letter-spacing:.08em;text-transform:uppercase;font-weight:600;color:#762F40"><span>Unidad 1 · Números</span><span style="color:#5E4A3C;letter-spacing:.04em">Tema 2 de 19 · OA 2</span></div>
+<h1 class="h" style="font-size:clamp(32px,4.4vw,46px);line-height:1.1;margin:22px 0 12px">Números racionales</h1>
+<p style="font-size:18px;color:#5E4A3C;margin:0">Los números racionales (ℚ) son los que se pueden escribir como fracción a/b, con a y b enteros y b ≠ 0. Incluyen a los enteros, a las fracciones y a los decimales finitos o periódicos.</p>
+<h2 class="h" style="font-size:26px;margin:28px 0 10px">Conceptos clave</h2>
+<ul style="margin:0;padding-left:20px"><li style="margin:0 0 10px"><b>Conjunto ℚ.</b> ℚ = {a/b : a, b ∈ ℤ, b ≠ 0}. Se ubican en la recta numérica y se comparan por su posición.</li><li style="margin:0 0 10px"><b>Adición y sustracción.</b> Con igual denominador se suman o restan los numeradores. Con distinto denominador se amplifica a un denominador común.</li><li style="margin:0 0 10px"><b>Multiplicación y división.</b> (a/b) · (c/d) = (a · c)/(b · d) y (a/b) ÷ (c/d) = (a/b) · (d/c). La regla de los signos es la misma que en ℤ.</li><li style="margin:0 0 10px"><b>Decimales.</b> Todo decimal finito o periódico es racional: 0,75 = 3/4 y 0,333… = 1/3.</li></ul>
+<div class="box" style="background:#FFFCF6;border:1px solid #E4D5BC"><div class="lab" style="color:#762F40">Ejemplos</div><div>−1/2 + 3/4 = −2/4 + 3/4 = 1/4</div><div>(−2/3) · (9/4) = −18/12 = −3/2</div><div>(−3/5) ÷ (−1/10) = 6</div></div>
+<div class="box" style="background:#F3EEE4"><div class="lab" style="color:#762F40">Un ejemplo de la vida diaria</div>Una cinta de 3/4 m se corta en 3 trozos iguales. Cada trozo mide (3/4) ÷ 3 = 1/4 m.</div>
+<div class="box" style="background:#FFF7E0;border:1px solid #E2C36B"><div class="lab" style="color:#7A5A12">Dato curioso</div><span class="fa">La palabra «racional» viene de «razón», que en matemática significa cociente entre dos números.</span><span class="fa" hidden>Entre dos números racionales cualesquiera siempre hay otro racional, así que hay infinitos entre ellos.</span></div>
+<div style="display:flex;flex-wrap:wrap;justify-content:space-between;gap:12px;margin-top:28px"><a class="nv" href="#L1">← Números enteros: multiplicación y división</a><a class="nv" href="#L3">Potencias →</a></div>
+</article>
+<article class="lesson" id="L3" hidden>
+<div style="display:flex;flex-wrap:wrap;gap:8px 16px;align-items:center;background:#F3EEE4;border-radius:12px;padding:10px 16px;font-size:13px;letter-spacing:.08em;text-transform:uppercase;font-weight:600;color:#762F40"><span>Unidad 1 · Números</span><span style="color:#5E4A3C;letter-spacing:.04em">Tema 3 de 19 · OA 3</span></div>
+<h1 class="h" style="font-size:clamp(32px,4.4vw,46px);line-height:1.1;margin:22px 0 12px">Potencias</h1>
+<p style="font-size:18px;color:#5E4A3C;margin:0">Una potencia es una multiplicación repetida del mismo factor. Sus propiedades permiten multiplicar y dividir potencias de forma rápida.</p>
+<h2 class="h" style="font-size:26px;margin:28px 0 10px">Conceptos clave</h2>
+<ul style="margin:0;padding-left:20px"><li style="margin:0 0 10px"><b>Definición.</b> aⁿ = a · a · … · a (n factores). La base es a y el exponente es n. Además a¹ = a y, si a ≠ 0, a⁰ = 1.</li><li style="margin:0 0 10px"><b>Multiplicación de potencias.</b> Con igual base: aᵐ · aⁿ = aᵐ⁺ⁿ. Con igual exponente: aⁿ · bⁿ = (a · b)ⁿ.</li><li style="margin:0 0 10px"><b>División de potencias.</b> Con igual base: aᵐ ÷ aⁿ = aᵐ⁻ⁿ. Con igual exponente: aⁿ ÷ bⁿ = (a ÷ b)ⁿ.</li></ul>
+<div class="box" style="background:#FFFCF6;border:1px solid #E4D5BC"><div class="lab" style="color:#762F40">Ejemplos</div><div>2² · 2³ = 2⁵ = 32</div><div>3³ ÷ 3² = 3¹ = 3</div><div>2³ · 5³ = 10³ = 1.000</div></div>
+<div class="box" style="background:#F3EEE4"><div class="lab" style="color:#762F40">Un ejemplo de la vida diaria</div>Un cubo de arista 4 cm tiene un volumen de 4³ = 64 cm³.</div>
+<div class="box" style="background:#FFF7E0;border:1px solid #E2C36B"><div class="lab" style="color:#7A5A12">Dato curioso</div><span class="fa">Según una leyenda, el inventor del ajedrez pidió granos de trigo duplicando la cantidad en cada casilla: 1, 2, 4, 8… El total resulta enorme.</span><span class="fa" hidden>Se dice «al cuadrado» y «al cubo» porque 3² es el área de un cuadrado de lado 3 y 3³ es el volumen de un cubo de arista 3.</span></div>
+<div style="display:flex;flex-wrap:wrap;justify-content:space-between;gap:12px;margin-top:28px"><a class="nv" href="#L2">← Números racionales</a><a class="nv" href="#L4">Raíz cuadrada →</a></div>
+</article>
+<article class="lesson" id="L4" hidden>
+<div style="display:flex;flex-wrap:wrap;gap:8px 16px;align-items:center;background:#F3EEE4;border-radius:12px;padding:10px 16px;font-size:13px;letter-spacing:.08em;text-transform:uppercase;font-weight:600;color:#762F40"><span>Unidad 1 · Números</span><span style="color:#5E4A3C;letter-spacing:.04em">Tema 4 de 19 · OA 4</span></div>
+<h1 class="h" style="font-size:clamp(32px,4.4vw,46px);line-height:1.1;margin:22px 0 12px">Raíz cuadrada</h1>
+<p style="font-size:18px;color:#5E4A3C;margin:0">La raíz cuadrada de un número es el valor que, multiplicado por sí mismo, da ese número. Está muy ligada al área de los cuadrados.</p>
+<h2 class="h" style="font-size:26px;margin:28px 0 10px">Conceptos clave</h2>
+<ul style="margin:0;padding-left:20px"><li style="margin:0 0 10px"><b>Definición.</b> √a = b si b² = a, con a y b mayores o iguales que 0. Por ejemplo, √49 = 7.</li><li style="margin:0 0 10px"><b>Cuadrados perfectos.</b> 1, 4, 9, 16, 25, 36… son los cuadrados de los naturales y su raíz es un número natural.</li><li style="margin:0 0 10px"><b>Estimación.</b> Si a no es un cuadrado perfecto, √a está entre dos naturales consecutivos. Por ejemplo, 4 < √20 < 5.</li><li style="margin:0 0 10px"><b>Geometría.</b> Si un cuadrado tiene área A, su lado mide √A.</li></ul>
+<div class="box" style="background:#FFFCF6;border:1px solid #E4D5BC"><div class="lab" style="color:#762F40">Ejemplos</div><div>√81 = 9</div><div>√2 · √2 = 2</div><div>6² = 36 < 40 < 49 = 7², así que 6 < √40 < 7</div></div>
+<div class="box" style="background:#F3EEE4"><div class="lab" style="color:#762F40">Un ejemplo de la vida diaria</div>Un terreno cuadrado de 400 m² tiene un lado de √400 = 20 m.</div>
+<div class="box" style="background:#FFF7E0;border:1px solid #E2C36B"><div class="lab" style="color:#7A5A12">Dato curioso</div><span class="fa">Los pitagóricos descubrieron que √2 no se puede escribir como fracción.</span><span class="fa" hidden>Los cuadrados perfectos son sumas de impares consecutivos: 1 + 3 + 5 + 7 = 16 = 4².</span></div>
+<div style="display:flex;flex-wrap:wrap;justify-content:space-between;gap:12px;margin-top:28px"><a class="nv" href="#L3">← Potencias</a><a class="nv" href="#L5">Variaciones porcentuales →</a></div>
+</article>
+<article class="lesson" id="L5" hidden>
+<div style="display:flex;flex-wrap:wrap;gap:8px 16px;align-items:center;background:#F3EEE4;border-radius:12px;padding:10px 16px;font-size:13px;letter-spacing:.08em;text-transform:uppercase;font-weight:600;color:#762F40"><span>Unidad 1 · Números</span><span style="color:#5E4A3C;letter-spacing:.04em">Tema 5 de 19 · OA 5</span></div>
+<h1 class="h" style="font-size:clamp(32px,4.4vw,46px);line-height:1.1;margin:22px 0 12px">Variaciones porcentuales</h1>
+<p style="font-size:18px;color:#5E4A3C;margin:0">Una variación porcentual indica cuánto aumenta o disminuye una cantidad, expresado como porcentaje de la cantidad inicial.</p>
+<h2 class="h" style="font-size:26px;margin:28px 0 10px">Conceptos clave</h2>
+<ul style="margin:0;padding-left:20px"><li style="margin:0 0 10px"><b>Aumento.</b> Cantidad final = cantidad inicial · (1 + p/100).</li><li style="margin:0 0 10px"><b>Disminución.</b> Cantidad final = cantidad inicial · (1 − p/100).</li><li style="margin:0 0 10px"><b>Variación porcentual.</b> (final − inicial)/inicial · 100. Es positiva si hay aumento y negativa si hay disminución.</li><li style="margin:0 0 10px"><b>Interés anual.</b> Un ahorro con interés anual de p % crece, en un año, en el p % del capital.</li></ul>
+<div class="box" style="background:#FFFCF6;border:1px solid #E4D5BC"><div class="lab" style="color:#762F40">Ejemplos</div><div>Aumentar 20 % a 250: 250 · 1,20 = 300</div><div>Bajar 15 % a 80: 80 · 0,85 = 68</div><div>De 40 a 50: (50 − 40)/40 · 100 = 25 % de aumento</div></div>
+<div class="box" style="background:#F3EEE4"><div class="lab" style="color:#762F40">Un ejemplo de la vida diaria</div>Ahorras $100.000 con un interés de 3 % anual. Al cabo de un año tienes 100.000 · 1,03 = $103.000.</div>
+<div class="box" style="background:#FFF7E0;border:1px solid #E2C36B"><div class="lab" style="color:#7A5A12">Dato curioso</div><span class="fa">Un aumento de 50 % seguido de una baja de 50 % no devuelve el valor original: 100 → 150 → 75.</span><span class="fa" hidden>Un aumento de 100 % duplica una cantidad, pero para volver al valor original basta bajarla 50 %.</span></div>
+<div style="display:flex;flex-wrap:wrap;justify-content:space-between;gap:12px;margin-top:28px"><a class="nv" href="#L4">← Raíz cuadrada</a><a class="nv" href="#L6">Expresiones algebraicas →</a></div>
+</article>
+<article class="lesson" id="L6" hidden>
+<div style="display:flex;flex-wrap:wrap;gap:8px 16px;align-items:center;background:#F3EEE4;border-radius:12px;padding:10px 16px;font-size:13px;letter-spacing:.08em;text-transform:uppercase;font-weight:600;color:#762F40"><span>Unidad 2 · Álgebra y funciones</span><span style="color:#5E4A3C;letter-spacing:.04em">Tema 6 de 19 · OA 6</span></div>
+<h1 class="h" style="font-size:clamp(32px,4.4vw,46px);line-height:1.1;margin:22px 0 12px">Expresiones algebraicas</h1>
+<p style="font-size:18px;color:#5E4A3C;margin:0">Las expresiones algebraicas se pueden sumar, restar y multiplicar. También se relacionan con áreas de cuadrados y rectángulos y con volúmenes.</p>
+<h2 class="h" style="font-size:26px;margin:28px 0 10px">Conceptos clave</h2>
+<ul style="margin:0;padding-left:20px"><li style="margin:0 0 10px"><b>Adición y sustracción.</b> Se reducen los términos semejantes: 3a + 2a = 5a.</li><li style="margin:0 0 10px"><b>Multiplicación.</b> Se usa la propiedad distributiva: a(b + c) = ab + ac y (a + b)(c + d) = ac + ad + bc + bd.</li><li style="margin:0 0 10px"><b>Factorización.</b> Consiste en escribir una expresión como producto. Por ejemplo, ab + ac = a(b + c).</li><li style="margin:0 0 10px"><b>Interpretación geométrica.</b> El área de un rectángulo de lados a y (b + c) es a(b + c) = ab + ac.</li></ul>
+<div class="box" style="background:#FFFCF6;border:1px solid #E4D5BC"><div class="lab" style="color:#762F40">Ejemplos</div><div>(2x + 3) + (x − 5) = 3x − 2</div><div>3(x + 4) = 3x + 12</div><div>(x + 2)(x + 3) = x² + 5x + 6</div><div>6x + 9 = 3(2x + 3)</div></div>
+<div class="box" style="background:#F3EEE4"><div class="lab" style="color:#762F40">Un ejemplo de la vida diaria</div>Una pieza rectangular mide (x + 2) de ancho y 3 de largo. Su área es 3(x + 2) = 3x + 6.</div>
+<div class="box" style="background:#FFF7E0;border:1px solid #E2C36B"><div class="lab" style="color:#7A5A12">Dato curioso</div><span class="fa">Los griegos demostraban identidades como (a + b)² dibujando cuadrados y rectángulos, mucho antes de usar letras.</span><span class="fa" hidden>El uso de x, y y z para las incógnitas se popularizó con Descartes, en el siglo XVII.</span></div>
+<div style="display:flex;flex-wrap:wrap;justify-content:space-between;gap:12px;margin-top:28px"><a class="nv" href="#L5">← Variaciones porcentuales</a><a class="nv" href="#L7">Ecuaciones →</a></div>
+</article>
+<article class="lesson" id="L7" hidden>
+<div style="display:flex;flex-wrap:wrap;gap:8px 16px;align-items:center;background:#F3EEE4;border-radius:12px;padding:10px 16px;font-size:13px;letter-spacing:.08em;text-transform:uppercase;font-weight:600;color:#762F40"><span>Unidad 2 · Álgebra y funciones</span><span style="color:#5E4A3C;letter-spacing:.04em">Tema 7 de 19 · OA 8</span></div>
+<h1 class="h" style="font-size:clamp(32px,4.4vw,46px);line-height:1.1;margin:22px 0 12px">Ecuaciones</h1>
+<p style="font-size:18px;color:#5E4A3C;margin:0">Una ecuación es una igualdad con una incógnita. Resolverla es encontrar el valor que la hace verdadera.</p>
+<h2 class="h" style="font-size:26px;margin:28px 0 10px">Conceptos clave</h2>
+<ul style="margin:0;padding-left:20px"><li style="margin:0 0 10px"><b>Principio.</b> Lo que se hace a un lado de la igualdad se hace al otro: se suma, resta, multiplica o divide por lo mismo (con divisor distinto de 0).</li><li style="margin:0 0 10px"><b>Formas.</b> ax = b; ax + b = c; ax = b + cx; a(x + b) = c; ax + b = cx + d.</li><li style="margin:0 0 10px"><b>Solución.</b> Es el valor de x que verifica la ecuación. Se comprueba reemplazándolo.</li></ul>
+<div class="box" style="background:#FFFCF6;border:1px solid #E4D5BC"><div class="lab" style="color:#762F40">Ejemplos</div><div>3x + 5 = 20 → 3x = 15 → x = 5</div><div>2(x − 1) = 10 → x − 1 = 5 → x = 6</div><div>5x = 2x + 9 → 3x = 9 → x = 3</div></div>
+<div class="box" style="background:#F3EEE4"><div class="lab" style="color:#762F40">Un ejemplo de la vida diaria</div>El arriendo de una bicicleta cuesta $1.000 fijos más $500 por hora, y pagaste $3.500. Entonces 1.000 + 500h = 3.500, y h = 5 horas.</div>
+<div class="box" style="background:#FFF7E0;border:1px solid #E2C36B"><div class="lab" style="color:#7A5A12">Dato curioso</div><span class="fa">El signo = lo inventó el galés Robert Recorde en 1557, porque decía que no hay dos cosas más iguales que dos rectas paralelas.</span><span class="fa" hidden>Ya se resolvían ecuaciones lineales hace casi 4.000 años, en Babilonia y Egipto.</span></div>
+<div style="display:flex;flex-wrap:wrap;justify-content:space-between;gap:12px;margin-top:28px"><a class="nv" href="#L6">← Expresiones algebraicas</a><a class="nv" href="#L8">Inecuaciones →</a></div>
+</article>
+<article class="lesson" id="L8" hidden>
+<div style="display:flex;flex-wrap:wrap;gap:8px 16px;align-items:center;background:#F3EEE4;border-radius:12px;padding:10px 16px;font-size:13px;letter-spacing:.08em;text-transform:uppercase;font-weight:600;color:#762F40"><span>Unidad 2 · Álgebra y funciones</span><span style="color:#5E4A3C;letter-spacing:.04em">Tema 8 de 19 · OA 9</span></div>
+<h1 class="h" style="font-size:clamp(32px,4.4vw,46px);line-height:1.1;margin:22px 0 12px">Inecuaciones</h1>
+<p style="font-size:18px;color:#5E4A3C;margin:0">Una inecuación es una desigualdad con una incógnita. Su solución es un conjunto de valores que se puede mostrar en la recta numérica.</p>
+<h2 class="h" style="font-size:26px;margin:28px 0 10px">Conceptos clave</h2>
+<ul style="margin:0;padding-left:20px"><li style="margin:0 0 10px"><b>Símbolos.</b> <, >, ≤ y ≥. Con ≤ y ≥ el extremo sí está incluido en la solución.</li><li style="margin:0 0 10px"><b>Resolución.</b> Se resuelve como una ecuación, pero si se multiplica o divide por un número negativo, el sentido de la desigualdad se invierte.</li><li style="margin:0 0 10px"><b>Representación.</b> En la recta numérica se usa un círculo vacío si el extremo no está incluido y uno lleno si lo está.</li></ul>
+<div class="box" style="background:#FFFCF6;border:1px solid #E4D5BC"><div class="lab" style="color:#762F40">Ejemplos</div><div>2x + 1 < 9 → 2x < 8 → x < 4</div><div>−3x ≥ 12 → x ≤ −4</div><div>x + 5 > 2 → x > −3</div></div>
+<div class="box" style="background:#F3EEE4"><div class="lab" style="color:#762F40">Un ejemplo de la vida diaria</div>Tienes $5.000 y cada cuaderno cuesta $800. Puedes comprar n cuadernos si 800n ≤ 5.000, es decir n ≤ 6,25, así que como máximo son 6.</div>
+<div class="box" style="background:#FFF7E0;border:1px solid #E2C36B"><div class="lab" style="color:#7A5A12">Dato curioso</div><span class="fa">Los símbolos < y > los introdujo Thomas Harriot en un libro publicado en 1631.</span><span class="fa" hidden>Al multiplicar por un número negativo se invierte la desigualdad: 2 < 3, pero −2 > −3.</span></div>
+<div style="display:flex;flex-wrap:wrap;justify-content:space-between;gap:12px;margin-top:28px"><a class="nv" href="#L7">← Ecuaciones</a><a class="nv" href="#L9">Concepto y representación de una función →</a></div>
+</article>
+<article class="lesson" id="L9" hidden>
+<div style="display:flex;flex-wrap:wrap;gap:8px 16px;align-items:center;background:#F3EEE4;border-radius:12px;padding:10px 16px;font-size:13px;letter-spacing:.08em;text-transform:uppercase;font-weight:600;color:#762F40"><span>Unidad 2 · Álgebra y funciones</span><span style="color:#5E4A3C;letter-spacing:.04em">Tema 9 de 19 · OA 7</span></div>
+<h1 class="h" style="font-size:clamp(32px,4.4vw,46px);line-height:1.1;margin:22px 0 12px">Concepto y representación de una función</h1>
+<p style="font-size:18px;color:#5E4A3C;margin:0">Una función es una regla que asigna a cada valor de entrada x un único valor de salida y. Se puede representar con una tabla, una fórmula o un gráfico.</p>
+<h2 class="h" style="font-size:26px;margin:28px 0 10px">Conceptos clave</h2>
+<ul style="margin:0;padding-left:20px"><li style="margin:0 0 10px"><b>Definición.</b> Una función relaciona entradas (dominio) con salidas, de modo que cada entrada tiene una sola salida. Se escribe y = f(x).</li><li style="margin:0 0 10px"><b>Representaciones.</b> Tabla de valores, regla o fórmula, diagrama de Venn con flechas y gráfico en el plano cartesiano.</li><li style="margin:0 0 10px"><b>Máquina.</b> La entrada x entra a la máquina, se aplica la regla y sale f(x).</li></ul>
+<div class="box" style="background:#FFFCF6;border:1px solid #E4D5BC"><div class="lab" style="color:#762F40">Ejemplos</div><div>f(x) = 2x + 1 → f(3) = 7</div><div>Tabla: x = 0, 1, 2 → y = 1, 3, 5</div></div>
+<div class="box" style="background:#F3EEE4"><div class="lab" style="color:#762F40">Un ejemplo de la vida diaria</div>En una librería cada fotocopia cuesta $50. El costo es f(n) = 50n, así que f(12) = $600.</div>
+<div class="box" style="background:#FFF7E0;border:1px solid #E2C36B"><div class="lab" style="color:#7A5A12">Dato curioso</div><span class="fa">La palabra «función» fue usada por primera vez por Leibniz, en el siglo XVII.</span><span class="fa" hidden>La notación f(x) fue introducida por Euler, en el siglo XVIII.</span></div>
+<div style="display:flex;flex-wrap:wrap;justify-content:space-between;gap:12px;margin-top:28px"><a class="nv" href="#L8">← Inecuaciones</a><a class="nv" href="#L10">Función lineal →</a></div>
+</article>
+<article class="lesson" id="L10" hidden>
+<div style="display:flex;flex-wrap:wrap;gap:8px 16px;align-items:center;background:#F3EEE4;border-radius:12px;padding:10px 16px;font-size:13px;letter-spacing:.08em;text-transform:uppercase;font-weight:600;color:#762F40"><span>Unidad 2 · Álgebra y funciones</span><span style="color:#5E4A3C;letter-spacing:.04em">Tema 10 de 19 · OA 7</span></div>
+<h1 class="h" style="font-size:clamp(32px,4.4vw,46px);line-height:1.1;margin:22px 0 12px">Función lineal</h1>
+<p style="font-size:18px;color:#5E4A3C;margin:0">La función lineal f(x) = mx modela un cambio constante: cada vez que x aumenta en 1, el valor de y cambia en m.</p>
+<h2 class="h" style="font-size:26px;margin:28px 0 10px">Conceptos clave</h2>
+<ul style="margin:0;padding-left:20px"><li style="margin:0 0 10px"><b>Forma.</b> f(x) = mx. El número m es la constante de proporcionalidad o pendiente.</li><li style="margin:0 0 10px"><b>Gráfico.</b> Es una recta que pasa por el origen (0, 0).</li><li style="margin:0 0 10px"><b>Cambio constante.</b> Si x aumenta en 1, f(x) aumenta en m, o disminuye si m es negativo.</li></ul>
+<div class="box" style="background:#FFFCF6;border:1px solid #E4D5BC"><div class="lab" style="color:#762F40">Ejemplos</div><div>f(x) = 3x → f(2) = 6 y f(−1) = −3</div><div>Por los puntos (1, 4) y (2, 8): m = 4</div></div>
+<div class="box" style="background:#F3EEE4"><div class="lab" style="color:#762F40">Un ejemplo de la vida diaria</div>Un auto que va a 60 km/h recorre d(t) = 60t km. En 2,5 h recorre 150 km.</div>
+<div class="box" style="background:#FFF7E0;border:1px solid #E2C36B"><div class="lab" style="color:#7A5A12">Dato curioso</div><span class="fa">En las señales de tránsito, una pendiente de 10 % significa que se sube 10 m por cada 100 m en horizontal.</span><span class="fa" hidden>La conversión de kilómetros a millas es lineal: 1 km ≈ 0,62 mi.</span></div>
+<div style="display:flex;flex-wrap:wrap;justify-content:space-between;gap:12px;margin-top:28px"><a class="nv" href="#L9">← Concepto y representación de una función</a><a class="nv" href="#L11">Función afín →</a></div>
+</article>
+<article class="lesson" id="L11" hidden>
+<div style="display:flex;flex-wrap:wrap;gap:8px 16px;align-items:center;background:#F3EEE4;border-radius:12px;padding:10px 16px;font-size:13px;letter-spacing:.08em;text-transform:uppercase;font-weight:600;color:#762F40"><span>Unidad 2 · Álgebra y funciones</span><span style="color:#5E4A3C;letter-spacing:.04em">Tema 11 de 19 · OA 10</span></div>
+<h1 class="h" style="font-size:clamp(32px,4.4vw,46px);line-height:1.1;margin:22px 0 12px">Función afín</h1>
+<p style="font-size:18px;color:#5E4A3C;margin:0">La función afín f(x) = mx + n es una función lineal más una constante n. Su gráfico es una recta que no necesariamente pasa por el origen.</p>
+<h2 class="h" style="font-size:26px;margin:28px 0 10px">Conceptos clave</h2>
+<ul style="margin:0;padding-left:20px"><li style="margin:0 0 10px"><b>Forma.</b> f(x) = mx + n. La pendiente m es el cambio constante y n es el valor de f cuando x = 0 (el punto donde la recta corta al eje Y).</li><li style="margin:0 0 10px"><b>Traslación.</b> El gráfico de mx + n es el de mx trasladado n unidades hacia arriba, o hacia abajo si n es negativo.</li><li style="margin:0 0 10px"><b>Interés simple.</b> Un capital C que gana una tasa r por período vale C + C · r · t después de t períodos: es una función afín de t.</li></ul>
+<div class="box" style="background:#FFFCF6;border:1px solid #E4D5BC"><div class="lab" style="color:#762F40">Ejemplos</div><div>f(x) = 2x + 3 → f(0) = 3 y f(4) = 11</div><div>De (0, 1) a (2, 7): m = (7 − 1)/(2 − 0) = 3</div></div>
+<div class="box" style="background:#F3EEE4"><div class="lab" style="color:#762F40">Un ejemplo de la vida diaria</div>Un taxi cobra $800 de bajada más $300 por km. El costo es c(k) = 800 + 300k, y por 5 km se pagan $2.300.</div>
+<div class="box" style="background:#FFF7E0;border:1px solid #E2C36B"><div class="lab" style="color:#7A5A12">Dato curioso</div><span class="fa">La conversión de °C a °F es una función afín, F = 1,8 · C + 32. Por eso −40 °C y −40 °F son la misma temperatura.</span><span class="fa" hidden>El dinero con interés simple crece como una función afín del tiempo.</span></div>
+<div style="display:flex;flex-wrap:wrap;justify-content:space-between;gap:12px;margin-top:28px"><a class="nv" href="#L10">← Función lineal</a><a class="nv" href="#L12">Teorema de Pitágoras →</a></div>
+</article>
+<article class="lesson" id="L12" hidden>
+<div style="display:flex;flex-wrap:wrap;gap:8px 16px;align-items:center;background:#F3EEE4;border-radius:12px;padding:10px 16px;font-size:13px;letter-spacing:.08em;text-transform:uppercase;font-weight:600;color:#762F40"><span>Unidad 3 · Geometría</span><span style="color:#5E4A3C;letter-spacing:.04em">Tema 12 de 19 · OA 12</span></div>
+<h1 class="h" style="font-size:clamp(32px,4.4vw,46px);line-height:1.1;margin:22px 0 12px">Teorema de Pitágoras</h1>
+<p style="font-size:18px;color:#5E4A3C;margin:0">En un triángulo rectángulo, los lados que forman el ángulo recto son los catetos y el lado opuesto a ese ángulo es la hipotenusa. El teorema de Pitágoras relaciona sus longitudes.</p>
+<h2 class="h" style="font-size:26px;margin:28px 0 10px">Conceptos clave</h2>
+<ul style="margin:0;padding-left:20px"><li style="margin:0 0 10px"><b>Teorema.</b> En todo triángulo rectángulo con catetos a y b e hipotenusa c se cumple a² + b² = c². El área del cuadrado de la hipotenusa es la suma de las áreas de los cuadrados de los catetos.</li><li style="margin:0 0 10px"><b>Recíproco.</b> Si en un triángulo de lados a, b y c se cumple a² + b² = c², entonces el triángulo es rectángulo.</li><li style="margin:0 0 10px"><b>Ternas pitagóricas.</b> Son tres naturales que cumplen el teorema: (3, 4, 5), (5, 12, 13) y (8, 15, 17).</li><li style="margin:0 0 10px"><b>Aplicaciones.</b> Permite calcular distancias. La diagonal de un rectángulo de lados a y b mide √(a² + b²).</li></ul>
+<div class="box" style="background:#FFFCF6;border:1px solid #E4D5BC"><div class="lab" style="color:#762F40">Ejemplos</div><div>Catetos 6 y 8: c² = 36 + 64 = 100, así que c = 10</div><div>Hipotenusa 13 y cateto 5: b² = 169 − 25 = 144, así que b = 12</div></div>
+<div class="box" style="background:#F3EEE4"><div class="lab" style="color:#762F40">Un ejemplo de la vida diaria</div>Una escalera de 5 m se apoya en una pared con su base a 3 m de ella. Llega a una altura de √(25 − 9) = 4 m.</div>
+<div class="box" style="background:#FFF7E0;border:1px solid #E2C36B"><div class="lab" style="color:#7A5A12">Dato curioso</div><span class="fa">Existen más de 300 demostraciones del teorema. James Garfield, que luego fue presidente de Estados Unidos, propuso una en 1876.</span><span class="fa" hidden>Hace unos 3.700 años, los babilonios ya conocían ternas pitagóricas, como lo muestra la tablilla Plimpton 322.</span></div>
+<div style="display:flex;flex-wrap:wrap;justify-content:space-between;gap:12px;margin-top:28px"><a class="nv" href="#L11">← Función afín</a><a class="nv" href="#L13">Transformaciones isométricas →</a></div>
+</article>
+<article class="lesson" id="L13" hidden>
+<div style="display:flex;flex-wrap:wrap;gap:8px 16px;align-items:center;background:#F3EEE4;border-radius:12px;padding:10px 16px;font-size:13px;letter-spacing:.08em;text-transform:uppercase;font-weight:600;color:#762F40"><span>Unidad 3 · Geometría</span><span style="color:#5E4A3C;letter-spacing:.04em">Tema 13 de 19 · OA 13</span></div>
+<h1 class="h" style="font-size:clamp(32px,4.4vw,46px);line-height:1.1;margin:22px 0 12px">Transformaciones isométricas</h1>
+<p style="font-size:18px;color:#5E4A3C;margin:0">Una transformación isométrica mueve una figura sin cambiar su forma ni su tamaño. Las tres básicas son la traslación, la rotación y la reflexión.</p>
+<h2 class="h" style="font-size:26px;margin:28px 0 10px">Conceptos clave</h2>
+<ul style="margin:0;padding-left:20px"><li style="margin:0 0 10px"><b>Traslación.</b> Mueve cada punto según un vector (a, b): (x, y) pasa a (x + a, y + b).</li><li style="margin:0 0 10px"><b>Rotación.</b> Gira la figura un ángulo dado en torno a un punto, el centro de rotación. Una rotación de 180° en torno al origen lleva (x, y) a (−x, −y).</li><li style="margin:0 0 10px"><b>Reflexión.</b> Da la imagen «de espejo» respecto de un eje. Con el eje X, (x, y) pasa a (x, −y); con el eje Y, pasa a (−x, y).</li><li style="margin:0 0 10px"><b>Propiedad.</b> Se conservan las longitudes, los ángulos y el área.</li></ul>
+<div class="box" style="background:#FFFCF6;border:1px solid #E4D5BC"><div class="lab" style="color:#762F40">Ejemplos</div><div>Trasladar A(1, 2) con el vector (3, −1): A′ = (4, 1)</div><div>Reflexión de P(2, 5) en el eje X: P′ = (2, −5)</div><div>Rotación de 180° de Q(3, −2) en torno al origen: Q′ = (−3, 2)</div></div>
+<div class="box" style="background:#F3EEE4"><div class="lab" style="color:#762F40">Un ejemplo de la vida diaria</div>Si mueves una pieza de ajedrez dos casillas a la derecha y una hacia arriba, aplicas la traslación (2, 1).</div>
+<div class="box" style="background:#FFF7E0;border:1px solid #E2C36B"><div class="lab" style="color:#7A5A12">Dato curioso</div><span class="fa">«Isometría» viene del griego y significa «igual medida».</span><span class="fa" hidden>Muchas ambulancias llevan la palabra escrita al revés en el frente para que se lea bien en el espejo retrovisor: es una reflexión.</span></div>
+<div style="display:flex;flex-wrap:wrap;justify-content:space-between;gap:12px;margin-top:28px"><a class="nv" href="#L12">← Teorema de Pitágoras</a><a class="nv" href="#L14">Composición de transformaciones y transformaciones en el espacio →</a></div>
+</article>
+<article class="lesson" id="L14" hidden>
+<div style="display:flex;flex-wrap:wrap;gap:8px 16px;align-items:center;background:#F3EEE4;border-radius:12px;padding:10px 16px;font-size:13px;letter-spacing:.08em;text-transform:uppercase;font-weight:600;color:#762F40"><span>Unidad 3 · Geometría</span><span style="color:#5E4A3C;letter-spacing:.04em">Tema 14 de 19 · OA 14</span></div>
+<h1 class="h" style="font-size:clamp(32px,4.4vw,46px);line-height:1.1;margin:22px 0 12px">Composición de transformaciones y transformaciones en el espacio</h1>
+<p style="font-size:18px;color:#5E4A3C;margin:0">Se pueden aplicar varias transformaciones una después de otra. Esto permite describir simetrías de polígonos y poliedros, y crear diseños y teselaciones.</p>
+<h2 class="h" style="font-size:26px;margin:28px 0 10px">Conceptos clave</h2>
+<ul style="margin:0;padding-left:20px"><li style="margin:0 0 10px"><b>Composición.</b> Consiste en aplicar una transformación y luego otra a la imagen obtenida. El orden puede cambiar el resultado.</li><li style="margin:0 0 10px"><b>Simetrías.</b> Un polígono regular de n lados tiene n ejes de simetría y puede rotar en torno a su centro quedando igual.</li><li style="margin:0 0 10px"><b>En el espacio.</b> Los poliedros también se pueden trasladar, rotar y reflejar, esta vez respecto de un plano.</li></ul>
+<div class="box" style="background:#FFFCF6;border:1px solid #E4D5BC"><div class="lab" style="color:#762F40">Ejemplos</div><div>La traslación (2, 0) seguida de la (1, 3) equivale a la traslación (3, 3)</div><div>El cuadrado tiene 4 ejes de simetría y el triángulo equilátero tiene 3</div></div>
+<div class="box" style="background:#F3EEE4"><div class="lab" style="color:#762F40">Un ejemplo de la vida diaria</div>Un diseñador de baldosas repite un motivo trasladándolo y reflejándolo hasta cubrir todo el piso.</div>
+<div class="box" style="background:#FFF7E0;border:1px solid #E2C36B"><div class="lab" style="color:#7A5A12">Dato curioso</div><span class="fa">Dos reflexiones seguidas en ejes paralelos equivalen a una traslación.</span><span class="fa" hidden>Los mosaicos de la Alhambra, en España, combinan traslaciones, rotaciones y reflexiones.</span></div>
+<div style="display:flex;flex-wrap:wrap;justify-content:space-between;gap:12px;margin-top:28px"><a class="nv" href="#L13">← Transformaciones isométricas</a><a class="nv" href="#L15">Área y volumen de prismas y cilindros →</a></div>
+</article>
+<article class="lesson" id="L15" hidden>
+<div style="display:flex;flex-wrap:wrap;gap:8px 16px;align-items:center;background:#F3EEE4;border-radius:12px;padding:10px 16px;font-size:13px;letter-spacing:.08em;text-transform:uppercase;font-weight:600;color:#762F40"><span>Unidad 3 · Geometría</span><span style="color:#5E4A3C;letter-spacing:.04em">Tema 15 de 19 · OA 11</span></div>
+<h1 class="h" style="font-size:clamp(32px,4.4vw,46px);line-height:1.1;margin:22px 0 12px">Área y volumen de prismas y cilindros</h1>
+<p style="font-size:18px;color:#5E4A3C;margin:0">El área de la superficie mide la «piel» de un cuerpo geométrico y el volumen mide el espacio que ocupa.</p>
+<h2 class="h" style="font-size:26px;margin:28px 0 10px">Conceptos clave</h2>
+<ul style="margin:0;padding-left:20px"><li style="margin:0 0 10px"><b>Prisma recto.</b> Área de la superficie = 2 · área de la base + área lateral. Volumen = área de la base · altura.</li><li style="margin:0 0 10px"><b>Cilindro.</b> Con radio r y altura h: Área = 2πr² + 2πrh y Volumen = πr²h.</li><li style="margin:0 0 10px"><b>Red.</b> Al desplegar un cuerpo se obtiene su red, que ayuda a calcular su área.</li></ul>
+<div class="box" style="background:#FFFCF6;border:1px solid #E4D5BC"><div class="lab" style="color:#762F40">Ejemplos</div><div>Prisma con base de 4 × 3 y altura 5: V = 12 · 5 = 60 cm³</div><div>Cubo de arista 3: Área = 6 · 9 = 54 cm²</div><div>Cilindro con r = 2 y h = 5: V ≈ 3,14 · 4 · 5 = 62,8 cm³</div></div>
+<div class="box" style="background:#F3EEE4"><div class="lab" style="color:#762F40">Un ejemplo de la vida diaria</div>Una caja de 20 × 10 × 5 cm tiene un volumen de 20 · 10 · 5 = 1.000 cm³, es decir, 1 litro.</div>
+<div class="box" style="background:#FFF7E0;border:1px solid #E2C36B"><div class="lab" style="color:#7A5A12">Dato curioso</div><span class="fa">Arquímedes pidió que en su tumba se grabara una esfera dentro de un cilindro, por lo que descubrió sobre sus volúmenes.</span><span class="fa" hidden>Un litro equivale a 1 dm³, o sea, un cubo de 10 cm de arista.</span></div>
+<div style="display:flex;flex-wrap:wrap;justify-content:space-between;gap:12px;margin-top:28px"><a class="nv" href="#L14">← Composición de transformaciones y transformaciones en el espacio</a><a class="nv" href="#L16">Representaciones gráficas →</a></div>
+</article>
+<article class="lesson" id="L16" hidden>
+<div style="display:flex;flex-wrap:wrap;gap:8px 16px;align-items:center;background:#F3EEE4;border-radius:12px;padding:10px 16px;font-size:13px;letter-spacing:.08em;text-transform:uppercase;font-weight:600;color:#762F40"><span>Unidad 4 · Probabilidad y estadística</span><span style="color:#5E4A3C;letter-spacing:.04em">Tema 16 de 19 · OA 16</span></div>
+<h1 class="h" style="font-size:clamp(32px,4.4vw,46px);line-height:1.1;margin:22px 0 12px">Representaciones gráficas</h1>
+<p style="font-size:18px;color:#5E4A3C;margin:0">Los mismos datos se pueden mostrar con distintos gráficos. Elegir el adecuado ayuda a comunicar bien y a detectar gráficos engañosos.</p>
+<h2 class="h" style="font-size:26px;margin:28px 0 10px">Conceptos clave</h2>
+<ul style="margin:0;padding-left:20px"><li style="margin:0 0 10px"><b>Tipos de gráficos.</b> De barras para comparar categorías, circular para partes de un todo, de líneas para cambios en el tiempo e histograma para datos agrupados en intervalos.</li><li style="margin:0 0 10px"><b>Elección.</b> Se escoge según el tipo de dato y lo que se quiere mostrar.</li><li style="margin:0 0 10px"><b>Manipulaciones.</b> Un eje que no parte en 0, escalas distintas o datos recortados pueden exagerar u ocultar diferencias.</li></ul>
+<div class="box" style="background:#FFFCF6;border:1px solid #E4D5BC"><div class="lab" style="color:#762F40">Ejemplos</div><div>La temperatura de cada día de una semana se muestra mejor con un gráfico de líneas</div><div>El porcentaje de estudiantes que practica cada deporte se muestra con un gráfico circular</div></div>
+<div class="box" style="background:#F3EEE4"><div class="lab" style="color:#762F40">Un ejemplo de la vida diaria</div>Si en un gráfico de barras el eje parte en 90 y no en 0, una diferencia entre 91 y 95 se ve enorme.</div>
+<div class="box" style="background:#FFF7E0;border:1px solid #E2C36B"><div class="lab" style="color:#7A5A12">Dato curioso</div><span class="fa">El gráfico circular fue popularizado por William Playfair, a comienzos del siglo XIX.</span><span class="fa" hidden>Un gráfico puede engañar sin tener datos falsos: basta cambiar dónde empieza el eje.</span></div>
+<div style="display:flex;flex-wrap:wrap;justify-content:space-between;gap:12px;margin-top:28px"><a class="nv" href="#L15">← Área y volumen de prismas y cilindros</a><a class="nv" href="#L17">Medidas de posición →</a></div>
+</article>
+<article class="lesson" id="L17" hidden>
+<div style="display:flex;flex-wrap:wrap;gap:8px 16px;align-items:center;background:#F3EEE4;border-radius:12px;padding:10px 16px;font-size:13px;letter-spacing:.08em;text-transform:uppercase;font-weight:600;color:#762F40"><span>Unidad 4 · Probabilidad y estadística</span><span style="color:#5E4A3C;letter-spacing:.04em">Tema 17 de 19 · OA 15</span></div>
+<h1 class="h" style="font-size:clamp(32px,4.4vw,46px);line-height:1.1;margin:22px 0 12px">Medidas de posición</h1>
+<p style="font-size:18px;color:#5E4A3C;margin:0">Las medidas de posición indican en qué lugar de un conjunto ordenado de datos se ubica un valor. Sirven para comparar poblaciones.</p>
+<h2 class="h" style="font-size:26px;margin:28px 0 10px">Conceptos clave</h2>
+<ul style="margin:0;padding-left:20px"><li style="margin:0 0 10px"><b>Cuartiles.</b> Dividen los datos ordenados en cuatro partes con igual cantidad de datos: Q1 (25 %), Q2 o mediana (50 %) y Q3 (75 %).</li><li style="margin:0 0 10px"><b>Percentiles.</b> El percentil k deja bajo él al k % de los datos.</li><li style="margin:0 0 10px"><b>Diagrama de cajón.</b> Muestra el mínimo, Q1, la mediana, Q3 y el máximo. Permite comparar dos poblaciones.</li></ul>
+<div class="box" style="background:#FFFCF6;border:1px solid #E4D5BC"><div class="lab" style="color:#762F40">Ejemplos</div><div>Datos 2, 4, 5, 7, 8, 10, 12: la mediana es 7</div><div>Una nota en el percentil 80 supera al 80 % de los datos</div></div>
+<div class="box" style="background:#F3EEE4"><div class="lab" style="color:#762F40">Un ejemplo de la vida diaria</div>La talla de un bebé en el percentil 50 de las tablas de crecimiento coincide con la mediana de su edad.</div>
+<div class="box" style="background:#FFF7E0;border:1px solid #E2C36B"><div class="lab" style="color:#7A5A12">Dato curioso</div><span class="fa">El diagrama de cajón fue creado por el estadístico John Tukey, en la década de 1970.</span><span class="fa" hidden>Las tablas de crecimiento infantil usan percentiles.</span></div>
+<div style="display:flex;flex-wrap:wrap;justify-content:space-between;gap:12px;margin-top:28px"><a class="nv" href="#L16">← Representaciones gráficas</a><a class="nv" href="#L18">Principio multiplicativo →</a></div>
+</article>
+<article class="lesson" id="L18" hidden>
+<div style="display:flex;flex-wrap:wrap;gap:8px 16px;align-items:center;background:#F3EEE4;border-radius:12px;padding:10px 16px;font-size:13px;letter-spacing:.08em;text-transform:uppercase;font-weight:600;color:#762F40"><span>Unidad 4 · Probabilidad y estadística</span><span style="color:#5E4A3C;letter-spacing:.04em">Tema 18 de 19 · OA 17</span></div>
+<h1 class="h" style="font-size:clamp(32px,4.4vw,46px);line-height:1.1;margin:22px 0 12px">Principio multiplicativo</h1>
+<p style="font-size:18px;color:#5E4A3C;margin:0">El principio multiplicativo permite contar de cuántas formas puede ocurrir una secuencia de decisiones, sin escribir todas las posibilidades.</p>
+<h2 class="h" style="font-size:26px;margin:28px 0 10px">Conceptos clave</h2>
+<ul style="margin:0;padding-left:20px"><li style="margin:0 0 10px"><b>Principio.</b> Si una decisión tiene m opciones y otra tiene n opciones, en conjunto hay m · n posibilidades.</li><li style="margin:0 0 10px"><b>Representaciones.</b> Se usan tablas y diagramas de árbol.</li><li style="margin:0 0 10px"><b>Más decisiones.</b> Con tres o más decisiones se multiplican las opciones de todas.</li></ul>
+<div class="box" style="background:#FFFCF6;border:1px solid #E4D5BC"><div class="lab" style="color:#762F40">Ejemplos</div><div>3 poleras y 4 pantalones: 3 · 4 = 12 combinaciones</div><div>Un código con 1 letra (5 opciones) y 2 dígitos (10 opciones cada uno): 5 · 10 · 10 = 500 códigos</div></div>
+<div class="box" style="background:#F3EEE4"><div class="lab" style="color:#762F40">Un ejemplo de la vida diaria</div>Un menú tiene 3 entradas, 4 platos de fondo y 2 postres. Hay 3 · 4 · 2 = 24 menús posibles.</div>
+<div class="box" style="background:#FFF7E0;border:1px solid #E2C36B"><div class="lab" style="color:#7A5A12">Dato curioso</div><span class="fa">Un candado de 4 dígitos tiene 10 · 10 · 10 · 10 = 10.000 combinaciones posibles.</span><span class="fa" hidden>Una pizzería con 5 ingredientes disponibles, que se pueden poner o no, ofrece 2⁵ = 32 pizzas distintas.</span></div>
+<div style="display:flex;flex-wrap:wrap;justify-content:space-between;gap:12px;margin-top:28px"><a class="nv" href="#L17">← Medidas de posición</a><a class="nv" href="#L19">Cálculo de probabilidades →</a></div>
+</article>
+<article class="lesson" id="L19" hidden>
+<div style="display:flex;flex-wrap:wrap;gap:8px 16px;align-items:center;background:#F3EEE4;border-radius:12px;padding:10px 16px;font-size:13px;letter-spacing:.08em;text-transform:uppercase;font-weight:600;color:#762F40"><span>Unidad 4 · Probabilidad y estadística</span><span style="color:#5E4A3C;letter-spacing:.04em">Tema 19 de 19 · OA 17</span></div>
+<h1 class="h" style="font-size:clamp(32px,4.4vw,46px);line-height:1.1;margin:22px 0 12px">Cálculo de probabilidades</h1>
+<p style="font-size:18px;color:#5E4A3C;margin:0">Un evento compuesto combina dos o más eventos simples. Con el principio multiplicativo podemos calcular su probabilidad.</p>
+<h2 class="h" style="font-size:26px;margin:28px 0 10px">Conceptos clave</h2>
+<ul style="margin:0;padding-left:20px"><li style="margin:0 0 10px"><b>Probabilidad.</b> P(A) = casos favorables / casos posibles, con 0 ≤ P(A) ≤ 1.</li><li style="margin:0 0 10px"><b>Evento compuesto.</b> El número de resultados posibles se obtiene con el principio multiplicativo. Si los eventos son independientes, P(A y B) = P(A) · P(B).</li><li style="margin:0 0 10px"><b>Complemento.</b> P(no A) = 1 − P(A).</li></ul>
+<div class="box" style="background:#FFFCF6;border:1px solid #E4D5BC"><div class="lab" style="color:#762F40">Ejemplos</div><div>Dos monedas: P(cara y cara) = 1/2 · 1/2 = 1/4</div><div>Dado: P(no salga 6) = 1 − 1/6 = 5/6</div><div>Un dado y una moneda: 6 · 2 = 12 resultados posibles</div></div>
+<div class="box" style="background:#F3EEE4"><div class="lab" style="color:#762F40">Un ejemplo de la vida diaria</div>Sacas una bolita de una bolsa con 3 rojas y 2 azules y lanzas una moneda. P(roja y cara) = 3/5 · 1/2 = 3/10.</div>
+<div class="box" style="background:#FFF7E0;border:1px solid #E2C36B"><div class="lab" style="color:#7A5A12">Dato curioso</div><span class="fa">En un grupo de 23 personas, la probabilidad de que dos cumplan años el mismo día supera el 50 %. Es la paradoja del cumpleaños.</span><span class="fa" hidden>Obtener 10 caras seguidas al lanzar una moneda tiene probabilidad 1/1.024.</span></div>
+<div style="display:flex;flex-wrap:wrap;justify-content:space-between;gap:12px;margin-top:28px"><a class="nv" href="#L18">← Principio multiplicativo</a><span></span></div>
+</article>
+</main>
+</div>
+<footer><div class="plaid"></div><div style="background:#3B2A22;color:#F6EEE0;font-size:14px"><div style="max-width:1120px;margin:0 auto;padding:26px 28px;display:flex;flex-wrap:wrap;justify-content:space-between;gap:12px"><span>Profe Boris · Matemática y computación</span><span>[TU CONTACTO]</span></div></div></footer>
+</div>
+<script>
+// Muestra solo la lección elegida (por ejemplo basico-8.html#L3) y marca su viñeta
+function mostrar(scroll){
+  var id=location.hash.slice(1);
+  var arts=document.querySelectorAll(".lesson"), hay=false;
+  arts.forEach(function(a){ if(a.id===id){hay=true;} });
+  if(!hay){ id="L1"; }
+  arts.forEach(function(a){ a.hidden=(a.id!==id); });
+  var act=document.getElementById(id), fs=act.querySelectorAll(".fa"), r=Math.floor(Math.random()*fs.length);
+  fs.forEach(function(f,j){ f.hidden=(j!==r); });
+  document.querySelectorAll(".side a").forEach(function(l){ l.classList.toggle("on", l.getAttribute("href")==="#"+id); });
+  if(scroll){ document.getElementById("contenido").scrollIntoView(); }
+}
+window.addEventListener("hashchange",function(){ mostrar(true); });
+mostrar(false);
+</script>
+</body>
+</html>
