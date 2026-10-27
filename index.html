@@ -1,0 +1,253 @@
+<!doctype html>
+<html lang="es">
+<head>
+<meta charset="utf-8">
+<meta name="viewport" content="width=device-width, initial-scale=1">
+<meta name="description" content="Recursos de matemática para enseñanza básica, enseñanza media y preparación PAES M1 y M2.">
+<title>Profe Boris | Matemática paso a paso</title>
+<link rel="preconnect" href="https://fonts.googleapis.com">
+<link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+<link href="https://fonts.googleapis.com/css2?family=Newsreader:opsz,wght@6..72,500;6..72,600&family=Instrument+Sans:wght@400;500;600&display=swap" rel="stylesheet">
+<style>
+  :root { --ink:#3B2A22; --muted:#5E4A3C; --line:#E4D5BC; --paper:#FBF9F5; --soft:#F3EEE4; --card:#FFFCF6; --burdeo:#762F40; --burdeo-dark:#5A2030; --gold:#B8892B; --gold-soft:#E8C873; --gold-text:#F0D9A0; }
+  * { box-sizing:border-box; }
+  html { scroll-behavior:smooth; }
+  body { margin:0; background:var(--paper); color:var(--ink); font:16px/1.6 'Instrument Sans',system-ui,-apple-system,'Segoe UI',sans-serif; }
+  a { color:inherit; text-decoration:none; }
+  .wrap { width:min(1120px, calc(100% - 56px)); margin:auto; }
+  h1,h2,h3 { font-family:'Newsreader',Georgia,serif; font-weight:500; margin:0; }
+  .plaid { height:14px; background:repeating-linear-gradient(90deg,#5A2030 0 28px,#F3EEE4 28px 34px,#B8892B 34px 40px,#F3EEE4 40px 46px); }
+  header { background:var(--burdeo); color:#FFFCF6; }
+  .nav { display:flex; flex-wrap:wrap; align-items:center; justify-content:space-between; gap:16px; padding:14px 0; }
+  .brand { display:flex; align-items:center; gap:12px; font-family:'Newsreader',Georgia,serif; font-size:25px; }
+  .brand img { height:48px; width:auto; }
+  nav { display:flex; flex-wrap:wrap; gap:24px; font-size:15px; }
+  nav a:hover { color:var(--gold-text); }
+  .hero { padding:72px 0 56px; display:grid; grid-template-columns:repeat(auto-fit,minmax(300px,1fr)); gap:48px; align-items:center; }
+  .eyebrow { font-size:13px; letter-spacing:.14em; text-transform:uppercase; color:var(--burdeo); font-weight:600; }
+  .hero h1 { font-size:clamp(38px,5.4vw,60px); line-height:1.08; letter-spacing:-.02em; margin:14px 0 18px; }
+  .lead { font-size:18px; color:var(--muted); max-width:520px; margin:0 0 28px; }
+  .actions { display:flex; flex-wrap:wrap; gap:12px; }
+  .btn { display:inline-flex; align-items:center; justify-content:center; min-height:46px; padding:0 22px; border-radius:12px; font-weight:600; }
+  .btn.primary { background:var(--burdeo); color:#FFFCF6; }
+  .btn.gold { background:var(--gold-soft); color:var(--ink); }
+  .photo { aspect-ratio:4/5; max-width:400px; margin-left:auto; border-radius:14px; background:#E9DAC0; border:6px solid #FFFCF6; box-shadow:0 0 0 2px var(--gold),0 18px 40px rgba(59,42,34,.18); display:flex; align-items:center; justify-content:center; text-align:center; color:#6B5645; padding:24px; overflow:hidden; }
+  .photo img { width:100%; height:100%; object-fit:cover; }
+  section { padding:24px 0 56px; }
+  h2 { font-size:34px; }
+  .sub { color:var(--muted); margin:6px 0 26px; }
+  .grid { display:grid; grid-template-columns:repeat(auto-fit,minmax(200px,1fr)); gap:16px; }
+  .card { display:flex; flex-direction:column; gap:6px; background:var(--card); border:1px solid var(--line); border-radius:18px; padding:24px; box-shadow:0 2px 0 var(--line); }
+  .card:hover { border-color:var(--burdeo); }
+  .card small { font-size:13px; color:var(--burdeo); font-weight:600; letter-spacing:.04em; }
+  .card h3 { font-size:24px; }
+  .card span.go { margin-top:6px; color:var(--burdeo); font-weight:600; }
+  .card p { margin:0; color:var(--muted); font-size:15px; }
+  .card.wine { background:var(--burdeo); border-color:var(--burdeo); color:#FFFCF6; }
+  .card.wine small, .card.wine span.go { color:var(--gold-text); }
+  .card.wine p { color:#F3E4E8; }
+  .paes { background:var(--burdeo); color:#FFFCF6; border-radius:22px; padding:40px; }
+  .paes .eyebrow { color:var(--gold-text); }
+  .paes h2 { margin:6px 0 22px; }
+  .paes .card { background:rgba(255,252,246,.08); border-color:rgba(240,217,160,.4); box-shadow:none; }
+  .paes .card:hover { border-color:var(--gold-text); }
+  .paes .card small, .paes .card span.go { color:var(--gold-text); }
+  .paes .card p { color:#F3E4E8; }
+  .recursos-band { background:var(--soft); padding:60px 0; }
+  .filters { display:grid; grid-template-columns:1fr 210px 210px; gap:10px; margin:0 0 20px; }
+  input, select { width:100%; min-height:46px; padding:10px 13px; border:1px solid #D9C6A5; border-radius:10px; background:#fff; color:var(--ink); font:inherit; }
+  input:focus, select:focus { outline:2px solid var(--burdeo); outline-offset:1px; }
+  .resources { display:grid; grid-template-columns:repeat(2,minmax(0,1fr)); gap:12px; }
+  .resource { background:var(--card); border:1px solid var(--line); border-radius:14px; padding:16px; display:flex; gap:14px; align-items:flex-start; }
+  .file-icon { flex:none; border-radius:9px; padding:9px 12px; background:var(--soft); color:var(--burdeo); font-weight:700; }
+  .resource h3 { font-family:'Instrument Sans',sans-serif; font-weight:600; font-size:1rem; margin:0 0 4px; }
+  .resource p { color:var(--muted); margin:0; font-size:.9rem; }
+  .resource .meta { display:block; margin-top:8px; color:var(--muted); font-size:.8rem; }
+  .resource a { color:var(--burdeo); font-weight:600; }
+  .resource a:hover { text-decoration:underline; }
+  .notice { padding:15px 17px; border-radius:12px; background:var(--card); border:1px dashed #D9C6A5; color:var(--muted); margin-top:18px; font-size:.92rem; }
+  .empty { grid-column:1/-1; padding:22px; border:1px dashed #D9C6A5; border-radius:12px; color:var(--muted); background:var(--card); }
+  .about { background:var(--card); border:1px solid var(--line); border-radius:18px; padding:32px; }
+  .about p { color:var(--muted); max-width:640px; }
+  footer { color:#F6EEE0; font-size:14px; }
+  footer .bar { background:var(--ink); }
+  footer .wrap { padding:26px 0; display:flex; flex-wrap:wrap; justify-content:space-between; gap:12px; }
+  @media (max-width:760px) {
+    .filters, .resources { grid-template-columns:1fr; }
+    .hero { padding:44px 0 32px; }
+    .paes { padding:28px 22px; }
+    .photo { margin:0 auto; }
+  }
+</style>
+</head>
+<body>
+<header>
+  <div class="wrap nav">
+    <a class="brand" href="#inicio"><img src="./alm.png" alt="Escudo del colegio"><span>Profe Boris</span></a>
+    <nav aria-label="Navegación principal">
+      <a href="#cursos">Cursos</a>
+      <a href="#paes">PAES</a>
+      <a href="#recursos">Materiales</a>
+      <a href="#sobre-mi">Sobre el profe</a>
+    </nav>
+  </div>
+  <div class="plaid"></div>
+</header>
+
+<main id="inicio">
+  <div class="wrap hero">
+    <div>
+      <div class="eyebrow">Matemática · un tema a la vez</div>
+      <h1>Un rincón tranquilo para entender matemática.</h1>
+      <p class="lead">Elige tu curso, revisa cada tema con calma y practica a tu ritmo. Con una taza de café, si quieres.</p>
+      <div class="actions">
+        <a class="btn primary" href="#cursos">Elegir mi curso</a>
+        <a class="btn gold" href="#recursos">Explorar materiales</a>
+      </div>
+    </div>
+    <!-- FOTO: para poner tu foto, reemplaza el texto de abajo por: <img src="./foto-profe.jpg" alt="Profe Boris"> -->
+    <div class="photo">[TU FOTO AQUÍ]</div>
+  </div>
+
+  <section id="cursos">
+    <div class="wrap">
+      <h2>Primero, tu curso</h2>
+      <p class="sub">Cada curso tiene sus temas, guías y tareas.</p>
+      <div class="grid">
+        <a class="card" href="basico-7.html"><small>BÁSICA · PÁGINA LISTA</small><h3>7° básico</h3><span class="go">Ver los 4 ejes →</span></a>
+        <a class="card" href="#recursos" data-filter-level="basica"><small>BÁSICA</small><h3>8° básico</h3><span class="go">Ver recursos →</span></a>
+        <a class="card" href="#recursos" data-filter-level="media"><small>MEDIA</small><h3>1° y 2° medio</h3><span class="go">Ver recursos →</span></a>
+        <a class="card" href="#recursos" data-filter-level="media"><small>MEDIA</small><h3>3° medio</h3><span class="go">Ver recursos →</span></a>
+        <a class="card" href="#recursos" data-filter-level="media"><small>MEDIA</small><h3>4° medio</h3><span class="go">Ver recursos →</span></a>
+        <a class="card wine" href="#paes"><small>PREPARACIÓN</small><h3>PAES</h3><span class="go">Ir a ensayos →</span></a>
+      </div>
+    </div>
+  </section>
+
+  <section id="paes">
+    <div class="wrap">
+      <div class="paes">
+        <div class="eyebrow">Sección PAES</div>
+        <h2>Practica con material real</h2>
+        <div class="grid">
+          <a class="card" href="#recursos" data-filter-exam="M1"><small>M1</small><h3>Competencia Matemática 1</h3><p>Habilidades y contenidos fundamentales para la prueba M1.</p><span class="go">Ver materiales M1 →</span></a>
+          <a class="card" href="#recursos" data-filter-exam="M2"><small>M2</small><h3>Competencia Matemática 2</h3><p>Contenidos y habilidades de la prueba M2.</p><span class="go">Ver materiales M2 →</span></a>
+          <a class="card" href="#recursos" data-filter-category="Ensayo"><small>ENSAYOS</small><h3>Ensayos y miniensayos</h3><p>Ensayos oficiales y miniensayos propios para diagnosticar y practicar.</p><span class="go">Ver ensayos →</span></a>
+        </div>
+      </div>
+    </div>
+  </section>
+
+  <div class="recursos-band" id="recursos">
+    <div class="wrap">
+      <h2>Biblioteca de recursos</h2>
+      <p class="sub">Busca por tema, nivel, prueba o tipo de material.</p>
+      <div class="filters">
+        <input id="search" type="search" placeholder="Buscar: porcentajes, funciones..." aria-label="Buscar recursos">
+        <select id="level" aria-label="Filtrar por nivel">
+          <option value="">Todos los niveles</option>
+          <option value="basica">Enseñanza básica</option>
+          <option value="media">Enseñanza media</option>
+          <option value="paes">PAES</option>
+        </select>
+        <select id="category" aria-label="Filtrar por tipo de material">
+          <option value="">Todos los materiales</option>
+          <option value="Guía">Guías</option>
+          <option value="Ejercicio">Ejercicios</option>
+          <option value="Solucionario">Solucionarios</option>
+          <option value="Presentación">Presentaciones</option>
+          <option value="Ensayo">Ensayos</option>
+        </select>
+      </div>
+      <div class="resources" id="resource-list" aria-live="polite"></div>
+      <div class="notice">Los recursos con enlace "Añadir archivo" son ejemplos de estructura. Reemplaza su <code>file</code> por la ruta de tu archivo en la lista <code>resources</code> al final de este documento.</div>
+    </div>
+  </div>
+
+  <section id="sobre-mi" style="padding-top:56px">
+    <div class="wrap">
+      <div class="about">
+        <div class="eyebrow">Sobre este espacio</div>
+        <h2 style="margin-top:8px">¡Hola! Soy el Profe Boris.</h2>
+        <p>Este sitio reúne explicaciones y materiales de apoyo para aprender matemática con confianza, practicar paso a paso y preparar evaluaciones.</p>
+        <p style="margin-bottom:0">Puedes personalizar esta presentación, añadir tus datos profesionales y agregar una forma de contacto cuando lo necesites.</p>
+      </div>
+    </div>
+  </section>
+</main>
+
+<footer>
+  <div class="plaid"></div>
+  <div class="bar"><div class="wrap"><span>© <span id="year"></span> Profe Boris · Matemática y computación</span><span>[TU CONTACTO]</span></div></div>
+</footer>
+
+<script>
+  // Agrega recursos aquí. Cambia "file" por una ruta dentro de la carpeta de tu repositorio
+  // (por ejemplo "./mi-guia.pdf") o por un enlace público de Google Drive.
+  const resources = [
+    {title: "Temario PAES Regular M1", topic: "Temario PAES 2027", level: "paes", category: "Guía", exam: "M1", course: "4° medio", file: "./2027-26-03-19-temario-paes-regular-m1.pdf", description: "Documento de contenidos para preparar la PAES M1."},
+    {title:"Ejercicios de proporcionalidad", topic:"Razones y proporciones", level:"basica", category:"Ejercicio", exam:"", course:"7° y 8° básico", file:"#", description:"Ejercicios para aplicar razones y proporciones."},
+    {title:"Potencias y raíces", topic:"Propiedades y operatoria", level:"media", category:"Guía", exam:"", course:"1° medio", file:"#", description:"Resumen de propiedades y ejercicios de práctica."},
+    {title:"Funciones cuadráticas", topic:"Gráfica, vértice y raíces", level:"media", category:"Presentación", exam:"", course:"3° y 4° medio", file:"#", description:"Presentación para estudiar los elementos de la parábola."},
+    {title:"Porcentajes tipo PAES", topic:"Porcentaje, variación porcentual", level:"paes", category:"Ejercicio", exam:"M1", course:"PAES M1", file:"#", description:"Problemas de aplicación con alternativas."},
+    {title:"Ensayo de práctica M1", topic:"Diagnóstico general", level:"paes", category:"Ensayo", exam:"M1", course:"PAES M1", file:"#", description:"Reemplaza este ejemplo por tu ensayo autorizado."},
+    {title:"Álgebra y funciones M2", topic:"Expresiones y funciones", level:"paes", category:"Guía", exam:"M2", course:"PAES M2", file:"#", description:"Material de repaso para profundizar contenidos."},
+    {title:"Solucionario de ejercicios M2", topic:"Desarrollo paso a paso", level:"paes", category:"Solucionario", exam:"M2", course:"PAES M2", file:"#", description:"Añade aquí las soluciones desarrolladas."}
+  ];
+
+  const list = document.getElementById("resource-list");
+  const search = document.getElementById("search");
+  const level = document.getElementById("level");
+  const category = document.getElementById("category");
+
+  function render() {
+    const q = search.value.trim().toLowerCase();
+    const filtered = resources.filter(r => {
+      const text = [r.title,r.topic,r.course,r.description,r.exam,r.category].join(" ").toLowerCase();
+      return (!q || text.includes(q)) && (!level.value || r.level === level.value) && (!category.value || r.category === category.value);
+    });
+    list.innerHTML = "";
+    if (!filtered.length) {
+      list.innerHTML = '<div class="empty">No encontramos recursos con esos filtros. Prueba con otra palabra o cambia los filtros.</div>';
+      return;
+    }
+    filtered.forEach(r => {
+      const item = document.createElement("article");
+      item.className = "resource";
+      const icon = document.createElement("div");
+      icon.className = "file-icon";
+      icon.textContent = r.category === "Presentación" ? "▤" : r.category === "Ensayo" ? "✓" : "↗";
+      const body = document.createElement("div");
+      const title = document.createElement("h3");
+      title.textContent = r.title;
+      const desc = document.createElement("p");
+      desc.textContent = r.description;
+      const meta = document.createElement("span");
+      meta.className = "meta";
+      meta.textContent = [r.course, r.category, r.exam].filter(Boolean).join(" · ");
+      const link = document.createElement("a");
+      link.href = r.file;
+      link.textContent = r.file === "#" ? "Añadir archivo →" : "Abrir recurso →";
+      if (r.file === "#") {
+        link.addEventListener("click", e => { e.preventDefault(); alert("Este es un recurso de ejemplo. Edita la lista resources en index.html y agrega el enlace de tu archivo."); });
+      } else {
+        link.target = "_blank";
+        link.rel = "noopener noreferrer";
+      }
+      body.append(title, desc, meta, document.createElement("br"), link);
+      item.append(icon, body);
+      list.append(item);
+    });
+  }
+
+  function resetFilters() { search.value = ""; level.value = ""; category.value = ""; }
+
+  [search,level,category].forEach(el => el.addEventListener("input", render));
+  document.querySelectorAll("[data-filter-level]").forEach(a => a.addEventListener("click", () => { resetFilters(); level.value = a.dataset.filterLevel; render(); }));
+  document.querySelectorAll("[data-filter-exam]").forEach(a => a.addEventListener("click", () => { resetFilters(); level.value = "paes"; search.value = a.dataset.filterExam; render(); }));
+  document.querySelectorAll("[data-filter-category]").forEach(a => a.addEventListener("click", () => { resetFilters(); level.value = "paes"; category.value = a.dataset.filterCategory; render(); }));
+  document.getElementById("year").textContent = new Date().getFullYear();
+  render();
+</script>
+</body>
+</html>
