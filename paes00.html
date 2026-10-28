@@ -3,13 +3,13 @@
 <head>
 <meta charset="utf-8">
 <meta name="viewport" content="width=device-width, initial-scale=1">
-<meta name="description" content="Miniensayo interactivo PAES Matemática - Profe Boris">
-<title>Miniensayo PAES | Profe Boris</title>
+<meta name="description" content="Miniensayos interactivos PAES Matemática M1 por eje - Profe Boris">
+<title>Miniensayos PAES M1 | Profe Boris</title>
 <link rel="preconnect" href="https://fonts.googleapis.com">
 <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
 <link href="https://fonts.googleapis.com/css2?family=Newsreader:opsz,wght@6..72,500;6..72,600&family=Instrument+Sans:wght@400;500;600&display=swap" rel="stylesheet">
 <style>
-  :root { --ink:#3B2A22; --muted:#5E4A3C; --line:#E4D5BC; --paper:#FBF9F5; --soft:#F3EEE4; --card:#FFFCF6; --burdeo:#762F40; --burdeo-dark:#5A2030; --gold:#B8892B; --gold-soft:#E8C873; --gold-text:#F0D9A0; --success:#2d6a4f; --error:#9b2226; }
+  :root { --ink:#3B2A22; --muted:#5E4A3C; --line:#E4D5BC; --paper:#FBF9F5; --soft:#F3EEE4; --card:#FFFCF6; --burdeo:#762F40; --burdeo-dark:#5A2030; --gold:#B8892B; --gold-soft:#E8C873; --gold-text:#F0D9A0; --success:#2d6a4f; --error:#9b2226; --sel:#D5D8DD; --sel-line:#4B5563; }
   * { box-sizing:border-box; }
   body { margin:0; background:var(--paper); color:var(--ink); font:16px/1.6 'Instrument Sans',system-ui,sans-serif; }
   a { color:inherit; text-decoration:none; }
@@ -17,37 +17,55 @@
   h1,h2 { font-family:'Newsreader',Georgia,serif; font-weight:500; margin:0; }
   .plaid { height:14px; background:repeating-linear-gradient(90deg,#5A2030 0 28px,#F3EEE4 28px 34px,#B8892B 34px 40px,#F3EEE4 40px 46px); }
   header { background:var(--burdeo); color:#FFFCF6; padding:16px 0; }
-  .nav-bar { display:flex; justify-content:space-between; align-items:center; }
+  .nav-bar { display:flex; justify-content:space-between; align-items:center; gap:12px; }
   .brand { font-family:'Newsreader',Georgia,serif; font-size:22px; font-weight:600; }
   .back-link { font-size:14px; color:var(--gold-text); font-weight:600; }
   .back-link:hover { text-decoration:underline; }
   main { padding:40px 0 60px; }
-  .quiz-header { margin-bottom:32px; text-align:center; }
+  .quiz-header { margin-bottom:24px; text-align:center; }
   .quiz-header .eyebrow { font-size:12px; letter-spacing:.14em; text-transform:uppercase; color:var(--burdeo); font-weight:600; margin-bottom:8px; }
   .quiz-header h1 { font-size:32px; margin-bottom:8px; }
   .quiz-header p { color:var(--muted); font-size:16px; margin:0; }
-  
+
+  .tabs { display:grid; grid-template-columns:repeat(auto-fit,minmax(170px,1fr)); gap:10px; margin-bottom:12px; }
+  .tab { display:flex; flex-direction:column; align-items:flex-start; gap:2px; text-align:left; font:inherit; color:var(--ink); background:var(--card); border:1px solid var(--line); border-radius:14px; padding:12px 16px; cursor:pointer; box-shadow:0 2px 0 var(--line); }
+  .tab:hover { border-color:var(--burdeo); }
+  .tab .tab-name { font-weight:600; }
+  .tab .tab-cnt { font-size:13px; color:var(--muted); }
+  .tab.on { background:var(--burdeo); border-color:var(--burdeo); color:#FFFCF6; }
+  .tab.on .tab-cnt { color:var(--gold-text); }
+  .eje-title { display:flex; flex-wrap:wrap; justify-content:space-between; align-items:baseline; gap:6px 16px; margin:22px 0 14px; }
+  .eje-title h2 { font-size:26px; }
+  .eje-title span { font-size:14px; color:var(--muted); }
+
   .question-card { background:var(--card); border:1px solid var(--line); border-radius:16px; padding:24px; margin-bottom:20px; box-shadow:0 2px 0 var(--line); }
   .q-number { font-size:13px; font-weight:600; color:var(--burdeo); margin-bottom:6px; letter-spacing:.04em; }
   .q-text { font-size:17px; font-weight:500; margin-bottom:16px; color:var(--ink); }
-  
+
   .options { display:grid; gap:10px; }
-  .option-btn { width:100%; text-align:left; background:var(--soft); border:1px solid var(--line); padding:12px 16px; border-radius:10px; font:inherit; color:var(--ink); cursor:pointer; transition:all 0.2s; display:flex; align-items:center; gap:10px; }
-  .option-btn:hover:not(:disabled) { border-color:var(--burdeo); background:#f0e5d8; }
-  .option-btn.correct { background:#d8f3dc !important; border-color:var(--success) !important; color:#081c15; font-weight:600; }
-  .option-btn.incorrect { background:#f8d7da !important; border-color:var(--error) !important; color:#58151c; }
+  .option-btn { width:100%; text-align:left; background:var(--soft); border:1px solid var(--line); padding:12px 16px; border-radius:10px; font:inherit; color:var(--ink); cursor:pointer; transition:all 0.2s; display:flex; align-items:flex-start; gap:10px; }
+  .option-btn .letter { flex:none; font-weight:600; }
+  .option-btn:hover:not(:disabled):not(.sel) { border-color:var(--burdeo); background:#f0e5d8; }
+  .option-btn.sel { background:var(--sel); border-color:var(--sel-line); box-shadow:inset 0 0 0 1px var(--sel-line); font-weight:600; color:#111827; }
+  .option-btn.correct { background:#d8f3dc !important; border-color:var(--success) !important; color:#081c15; font-weight:600; box-shadow:none; }
+  .option-btn.incorrect { background:#f8d7da !important; border-color:var(--error) !important; color:#58151c; box-shadow:none; }
   .option-btn:disabled { cursor:default; }
 
   .submit-container { text-align:center; margin-top:32px; }
-  .btn-submit { background:var(--burdeo); color:#FFFCF6; border:none; padding:14px 32px; font-size:16px; font-weight:600; border-radius:12px; cursor:pointer; transition:background 0.2s; }
+  .progress { color:var(--muted); font-size:14px; margin-bottom:10px; }
+  .btn-submit { background:var(--burdeo); color:#FFFCF6; border:none; padding:14px 32px; font-size:16px; font-weight:600; border-radius:12px; cursor:pointer; transition:background 0.2s; font-family:inherit; }
   .btn-submit:hover { background:var(--burdeo-dark); }
 
   .results-box { display:none; background:var(--card); border:2px solid var(--burdeo); border-radius:18px; padding:32px; text-align:center; margin-top:32px; animation:fadeIn 0.4s ease-in-out; }
   .results-box h2 { font-size:28px; color:var(--burdeo); margin-bottom:12px; }
-  .score-display { font-size:42px; font-family:'Newsreader',serif; font-weight:600; color:var(--ink); margin:16px 0; }
-  .score-desc { color:var(--muted); font-size:15px; margin-bottom:20px; }
-  .btn-retry { background:var(--gold-soft); color:var(--ink); border:none; padding:10px 24px; font-weight:600; border-radius:10px; cursor:pointer; }
-  
+  .score-display { font-size:42px; font-family:'Newsreader',serif; font-weight:600; color:var(--ink); margin:16px 0 4px; }
+  .score-note { font-size:13px; color:var(--muted); margin-bottom:20px; }
+  .score-desc { color:var(--muted); font-size:15px; }
+  .btn-row { display:flex; flex-wrap:wrap; justify-content:center; gap:10px; }
+  .btn-retry, .btn-next { border:none; padding:10px 24px; font-weight:600; border-radius:10px; cursor:pointer; font-family:inherit; font-size:15px; }
+  .btn-retry { background:var(--gold-soft); color:var(--ink); }
+  .btn-next { background:var(--soft); color:var(--burdeo); border:1px solid var(--line); }
+
   @keyframes fadeIn { from { opacity:0; transform:translateY(10px); } to { opacity:1; transform:translateY(0); } }
 </style>
 </head>
@@ -63,191 +81,1015 @@
 
 <main class="wrap">
   <div class="quiz-header">
-    <div class="eyebrow">Ensayo de Prueba M1</div>
-    <h1>Miniensayo PAES (10 Preguntas)</h1>
-    <p>Selecciona la alternativa correcta para cada ejercicio. Al finalizar, obtendrás tu puntaje estimado.</p>
+    <div class="eyebrow">Ensayo de Prueba M1 · 4 ejes</div>
+    <h1>Miniensayos PAES</h1>
+    <p>Elige un eje y responde sus 20 preguntas. Al finalizar, verás tus aciertos y un puntaje estimado.</p>
   </div>
+
+  <div class="tabs" id="tabs" role="tablist" aria-label="Ejes temáticos"></div>
+
+  <div class="eje-title"><h2 id="eje-name"></h2><span id="eje-info"></span></div>
 
   <div id="quiz-container"></div>
 
   <div class="submit-container" id="submit-area">
-    <button class="btn-submit" id="check-btn" onclick="evaluateQuiz()">Ver mis resultados y puntaje</button>
+    <div class="progress" id="progress"></div>
+    <button class="btn-submit" id="check-btn" type="button" onclick="evaluateEje()">Ver mis resultados y puntaje</button>
   </div>
 
   <div class="results-box" id="results-box">
-    <h2>¡Evaluación completada!</h2>
+    <h2>¡Eje completado!</h2>
     <div class="score-desc" id="score-text"></div>
     <div class="score-display" id="score-number"></div>
-    <button class="btn-retry" onclick="resetQuiz()">Intentar nuevamente</button>
+    <div class="score-note">Puntaje referencial, no equivale al puntaje oficial de la PAES.</div>
+    <div class="btn-row">
+      <button class="btn-retry" type="button" onclick="resetEje()">Intentar nuevamente</button>
+      <button class="btn-next" type="button" onclick="nextEje()">Siguiente eje →</button>
+    </div>
   </div>
 </main>
 
 <script>
-  // Banco de 10 preguntas de ejemplo tipo PAES M1
-  const questions = [
-    {
-      id: 1,
-      text: "¿Cuál es el valor de la expresión: 3 + 2 · (5 - 3)² ?",
-      options: ["A) 11", "B) 7", "C) 19", "D) 25"],
-      correct: 0 // Índice de la opción correcta (A=0, B=1, C=2, D=3)
-    },
-    {
-      id: 2,
-      text: "Si el 25% de un número es 40, ¿cuál es el número?",
-      options: ["A) 100", "B) 160", "C) 80", "D) 200"],
-      correct: 1
-    },
-    {
-      id: 3,
-      text: "¿Cuál de los siguientes números es irracional?",
-      options: ["A) √16", "B) 3,1416", "C) √5", "D) 15/4"],
-      correct: 2
-    },
-    {
-      id: 4,
-      text: "Al resolver la ecuación 3x - 5 = 10 + x, el valor de x es:",
-      options: ["A) 2,5", "B) 5", "C) 7,5", "D) 15"],
-      correct: 2
-    },
-    {
-      id: 5,
-      text: "Si se simplifica la fracción algebraica (x² - 4) / (x - 2) para x ≠ 2, se obtiene:",
-      options: ["A) x - 2", "B) 1", "C) x + 2", "D) 2x"],
-      correct: 2
-    },
-    {
-      id: 6,
-      text: "¿Cuál es la pendiente de la recta que pasa por los puntos (1, 2) y (3, 8)?",
-      options: ["A) 2", "B) 3", "C) 4", "D) 6"],
-      correct: 1
-    },
-    {
-      id: 7,
-      text: "Un artículo cuesta $12.000 y sufre un descuento del 15%. ¿Cuál es su precio final?",
-      options: ["A) $10.200", "B) $10.800", "C) $9.500", "D) $11.000"],
-      correct: 0
-    },
-    {
-      id: 8,
-      text: "Si log₂(x) = 3, ¿cuál es el valor de x?",
-      options: ["A) 6", "B) 8", "C) 9", "D) 32"],
-      correct: 1
-    },
-    {
-      id: 9,
-      text: "En un curso de 40 estudiantes, el 60% son mujeres. ¿Cuántos varones hay en el curso?",
-      options: ["A) 16", "B) 24", "C) 18", "D) 14"],
-      correct: 0
-    },
-    {
-      id: 10,
-      text: "¿Cuál es la probabilidad de obtener un número primo al lanzar un dado común de 6 caras?",
-      options: ["A) 1/6", "B) 1/3", "C) 1/2", "D) 2/3"],
-      correct: 2
-    }
-  ];
+  // Banco de preguntas tipo PAES M1: 4 ejes del temario oficial, 20 preguntas por eje.
+  // Cada pregunta: t = enunciado, o = alternativas (A a D), c = índice de la correcta (A=0, B=1, C=2, D=3).
+  const EJES = [
+ {
+  "name": "Números",
+  "q": [
+   {
+    "t": "¿Cuál es el valor de −3 · (−4) + 2 · (−5)?",
+    "o": [
+     "−2",
+     "2",
+     "22",
+     "−22"
+    ],
+    "c": 1
+   },
+   {
+    "t": "El resultado de 1/2 + 1/3 − 1/6 es:",
+    "o": [
+     "1/3",
+     "1/2",
+     "5/6",
+     "2/3"
+    ],
+    "c": 3
+   },
+   {
+    "t": "¿Cuál es el valor de (3/4) ÷ (9/8)?",
+    "o": [
+     "2/3",
+     "27/32",
+     "3/2",
+     "1/2"
+    ],
+    "c": 0
+   },
+   {
+    "t": "¿Cuál de los siguientes números es mayor que 2/3 y menor que 3/4?",
+    "o": [
+     "0,65",
+     "0,75",
+     "0,70",
+     "0,80"
+    ],
+    "c": 2
+   },
+   {
+    "t": "El mínimo común múltiplo (m.c.m.) de 12 y 18 es:",
+    "o": [
+     "6",
+     "24",
+     "36",
+     "216"
+    ],
+    "c": 2
+   },
+   {
+    "t": "Dos cuerdas de 48 cm y 72 cm se cortan en trozos iguales, lo más largos posible y sin que sobre cuerda. ¿Cuánto mide cada trozo?",
+    "o": [
+     "24 cm",
+     "8 cm",
+     "12 cm",
+     "144 cm"
+    ],
+    "c": 0
+   },
+   {
+    "t": "¿Para qué valor del dígito d el número 5d4 es divisible por 3?",
+    "o": [
+     "1",
+     "2",
+     "4",
+     "3"
+    ],
+    "c": 3
+   },
+   {
+    "t": "¿Cuál es el 35 % de 240?",
+    "o": [
+     "72",
+     "84",
+     "96",
+     "105"
+    ],
+    "c": 1
+   },
+   {
+    "t": "Un televisor cuesta $250.000 y tiene un 20 % de descuento. ¿Cuánto se paga por él?",
+    "o": [
+     "$150.000",
+     "$180.000",
+     "$230.000",
+     "$200.000"
+    ],
+    "c": 3
+   },
+   {
+    "t": "¿Qué porcentaje de 80 es 20?",
+    "o": [
+     "20 %",
+     "25 %",
+     "40 %",
+     "400 %"
+    ],
+    "c": 1
+   },
+   {
+    "t": "Un precio sube un 10 % y luego baja un 10 %. Respecto del precio original, el precio final:",
+    "o": [
+     "es igual",
+     "sube un 1 %",
+     "baja un 1 %",
+     "baja un 10 %"
+    ],
+    "c": 2
+   },
+   {
+    "t": "Si el 40 % de un número es 36, ¿cuál es el número?",
+    "o": [
+     "90",
+     "14,4",
+     "72",
+     "144"
+    ],
+    "c": 0
+   },
+   {
+    "t": "El valor de 2⁻³ + 2⁻² es:",
+    "o": [
+     "3/8",
+     "1/32",
+     "1/2",
+     "5/8"
+    ],
+    "c": 0
+   },
+   {
+    "t": "El valor de (3⁵ · 3⁻²) / 3² es:",
+    "o": [
+     "1",
+     "9",
+     "3",
+     "27"
+    ],
+    "c": 2
+   },
+   {
+    "t": "El valor de 8^(2/3) es:",
+    "o": [
+     "2",
+     "4",
+     "6",
+     "16"
+    ],
+    "c": 1
+   },
+   {
+    "t": "El valor de √50 − √18 es:",
+    "o": [
+     "2",
+     "4√2",
+     "√32",
+     "2√2"
+    ],
+    "c": 3
+   },
+   {
+    "t": "Al racionalizar 6/√3 se obtiene:",
+    "o": [
+     "2",
+     "3√3",
+     "2√3",
+     "6√3"
+    ],
+    "c": 2
+   },
+   {
+    "t": "El valor de ∛(−27) + √16 es:",
+    "o": [
+     "1",
+     "−7",
+     "−1",
+     "7"
+    ],
+    "c": 0
+   },
+   {
+    "t": "Un recipiente contiene 3/4 de litro de jugo. Si se sirven vasos de 1/8 de litro, ¿cuántos vasos se llenan?",
+    "o": [
+     "3",
+     "6",
+     "4",
+     "8"
+    ],
+    "c": 1
+   },
+   {
+    "t": "La temperatura a las 8:00 era −4 °C y a las 15:00 era 9 °C. ¿Cuántos grados subió?",
+    "o": [
+     "5 °C",
+     "9 °C",
+     "15 °C",
+     "13 °C"
+    ],
+    "c": 3
+   }
+  ]
+ },
+ {
+  "name": "Álgebra y funciones",
+  "q": [
+   {
+    "t": "El desarrollo de (x + 5)² es:",
+    "o": [
+     "x² + 10x + 25",
+     "x² + 25",
+     "x² + 5x + 25",
+     "x² + 10x + 10"
+    ],
+    "c": 0
+   },
+   {
+    "t": "El producto (2a − 3)(2a + 3) es igual a:",
+    "o": [
+     "4a² + 9",
+     "2a² − 9",
+     "4a² − 6a − 9",
+     "4a² − 9"
+    ],
+    "c": 3
+   },
+   {
+    "t": "La expresión x² − 7x + 12 factorizada es:",
+    "o": [
+     "(x + 3)(x + 4)",
+     "(x − 3)(x − 4)",
+     "(x − 2)(x − 6)",
+     "(x − 3)(x + 4)"
+    ],
+    "c": 1
+   },
+   {
+    "t": "Al factorizar completamente 6x² − 9x se obtiene:",
+    "o": [
+     "3x(2x + 3)",
+     "3(2x − 3)",
+     "9x(x − 1)",
+     "3x(2x − 3)"
+    ],
+    "c": 3
+   },
+   {
+    "t": "Al simplificar (x² − 9)/(x + 3), con x ≠ −3, se obtiene:",
+    "o": [
+     "x + 3",
+     "x − 3",
+     "x² − 3",
+     "3 − x"
+    ],
+    "c": 1
+   },
+   {
+    "t": "Si a = 2 y b = −3, el valor de a² − 2ab + b² es:",
+    "o": [
+     "1",
+     "13",
+     "25",
+     "−11"
+    ],
+    "c": 2
+   },
+   {
+    "t": "Si 5 cuadernos cuestan $4.000, ¿cuánto cuestan 8 cuadernos?",
+    "o": [
+     "$6.400",
+     "$5.600",
+     "$6.000",
+     "$7.200"
+    ],
+    "c": 0
+   },
+   {
+    "t": "Seis máquinas producen un lote en 10 horas. Si se usan 15 máquinas iguales, ¿en cuántas horas lo producen?",
+    "o": [
+     "4 horas",
+     "6 horas",
+     "9 horas",
+     "25 horas"
+    ],
+    "c": 0
+   },
+   {
+    "t": "En una proporcionalidad directa, cuando x = 3 se tiene y = 12. ¿Cuánto vale y cuando x = 7?",
+    "o": [
+     "16",
+     "21",
+     "28",
+     "84"
+    ],
+    "c": 2
+   },
+   {
+    "t": "El valor de x en la ecuación 3(x − 2) = 2x + 5 es:",
+    "o": [
+     "−11",
+     "11",
+     "1",
+     "7"
+    ],
+    "c": 1
+   },
+   {
+    "t": "Al resolver x/2 + x/3 = 10 se obtiene x =",
+    "o": [
+     "6",
+     "9",
+     "15",
+     "12"
+    ],
+    "c": 3
+   },
+   {
+    "t": "La suma de tres números consecutivos es 87. ¿Cuál es el mayor de ellos?",
+    "o": [
+     "28",
+     "29",
+     "30",
+     "31"
+    ],
+    "c": 2
+   },
+   {
+    "t": "Ana tiene el doble de la edad de Beto. Dentro de 5 años, la suma de sus edades será 40. ¿Qué edad tiene hoy Beto?",
+    "o": [
+     "10 años",
+     "5 años",
+     "15 años",
+     "20 años"
+    ],
+    "c": 0
+   },
+   {
+    "t": "La solución del sistema x + y = 7 y x − y = 1 es:",
+    "o": [
+     "(3, 4)",
+     "(4, 3)",
+     "(5, 2)",
+     "(6, 1)"
+    ],
+    "c": 1
+   },
+   {
+    "t": "En un kiosco, 2 helados y 1 jugo cuestan $2.500, y 1 helado y 1 jugo cuestan $1.800. ¿Cuánto cuesta un helado?",
+    "o": [
+     "$500",
+     "$800",
+     "$1.100",
+     "$700"
+    ],
+    "c": 3
+   },
+   {
+    "t": "El conjunto solución de la inecuación 2x − 3 > 7 es:",
+    "o": [
+     "x < 5",
+     "x > 5",
+     "x > 2",
+     "x < 2"
+    ],
+    "c": 1
+   },
+   {
+    "t": "Al resolver −3x + 4 ≤ 10 se obtiene:",
+    "o": [
+     "x ≤ −2",
+     "x ≥ 2",
+     "x ≤ 2",
+     "x ≥ −2"
+    ],
+    "c": 3
+   },
+   {
+    "t": "La recta que pasa por los puntos (0, 3) y (2, 7) tiene ecuación:",
+    "o": [
+     "y = 2x + 3",
+     "y = 3x + 2",
+     "y = 2x − 3",
+     "y = 4x + 3"
+    ],
+    "c": 0
+   },
+   {
+    "t": "¿Cuáles son las coordenadas del vértice de f(x) = x² − 6x + 5?",
+    "o": [
+     "(−3, −4)",
+     "(3, 4)",
+     "(3, −4)",
+     "(6, 5)"
+    ],
+    "c": 2
+   },
+   {
+    "t": "Las soluciones de la ecuación x² − 5x + 6 = 0 son:",
+    "o": [
+     "x = −2 y x = −3",
+     "x = 1 y x = 6",
+     "x = 2 y x = 3",
+     "x = −1 y x = −6"
+    ],
+    "c": 2
+   }
+  ]
+ },
+ {
+  "name": "Geometría",
+  "q": [
+   {
+    "t": "Un triángulo rectángulo tiene catetos de 9 cm y 12 cm. ¿Cuánto mide su hipotenusa?",
+    "o": [
+     "13 cm",
+     "18 cm",
+     "15 cm",
+     "21 cm"
+    ],
+    "c": 2
+   },
+   {
+    "t": "Una escalera de 13 m se apoya en una pared con su base a 5 m de ella. ¿A qué altura de la pared llega?",
+    "o": [
+     "12 m",
+     "8 m",
+     "10 m",
+     "18 m"
+    ],
+    "c": 0
+   },
+   {
+    "t": "Un triángulo tiene base 10 cm y altura 7 cm. Su área es:",
+    "o": [
+     "35 cm²",
+     "17 cm²",
+     "49 cm²",
+     "70 cm²"
+    ],
+    "c": 0
+   },
+   {
+    "t": "Un trapecio tiene bases de 12 cm y 8 cm y altura de 5 cm. ¿Cuál es su área?",
+    "o": [
+     "40 cm²",
+     "60 cm²",
+     "50 cm²",
+     "100 cm²"
+    ],
+    "c": 2
+   },
+   {
+    "t": "Un paralelogramo tiene base 9 cm, altura 4 cm y su otro lado mide 5 cm. ¿Cuál es su área?",
+    "o": [
+     "18 cm²",
+     "36 cm²",
+     "20 cm²",
+     "45 cm²"
+    ],
+    "c": 1
+   },
+   {
+    "t": "El área de un círculo de radio 6 cm es:",
+    "o": [
+     "6π cm²",
+     "12π cm²",
+     "18π cm²",
+     "36π cm²"
+    ],
+    "c": 3
+   },
+   {
+    "t": "El perímetro de una circunferencia es 20π cm. ¿Cuál es su radio?",
+    "o": [
+     "5 cm",
+     "20 cm",
+     "10 cm",
+     "40 cm"
+    ],
+    "c": 2
+   },
+   {
+    "t": "El área de un cuadrado es 49 cm². ¿Cuál es su perímetro?",
+    "o": [
+     "28 cm",
+     "14 cm",
+     "49 cm",
+     "196 cm"
+    ],
+    "c": 0
+   },
+   {
+    "t": "El volumen de un paralelepípedo de dimensiones 4 cm, 5 cm y 6 cm es:",
+    "o": [
+     "30 cm³",
+     "120 cm³",
+     "60 cm³",
+     "148 cm³"
+    ],
+    "c": 1
+   },
+   {
+    "t": "La arista de un cubo mide 3 cm. ¿Cuál es el área total de su superficie?",
+    "o": [
+     "9 cm²",
+     "27 cm²",
+     "36 cm²",
+     "54 cm²"
+    ],
+    "c": 3
+   },
+   {
+    "t": "Un cilindro tiene radio 3 cm y altura 10 cm. Su volumen es:",
+    "o": [
+     "30π cm³",
+     "90π cm³",
+     "60π cm³",
+     "180π cm³"
+    ],
+    "c": 1
+   },
+   {
+    "t": "El área lateral de un cilindro de radio 2 cm y altura 7 cm es:",
+    "o": [
+     "14π cm²",
+     "22π cm²",
+     "56π cm²",
+     "28π cm²"
+    ],
+    "c": 3
+   },
+   {
+    "t": "Una piscina de 10 m de largo, 4 m de ancho y 2 m de profundidad se llena por completo. ¿Cuántos m³ de agua contiene?",
+    "o": [
+     "80 m³",
+     "16 m³",
+     "40 m³",
+     "160 m³"
+    ],
+    "c": 0
+   },
+   {
+    "t": "¿Cuál es la distancia entre los puntos (1, 2) y (4, 6)?",
+    "o": [
+     "3",
+     "7",
+     "5",
+     "25"
+    ],
+    "c": 2
+   },
+   {
+    "t": "Al trasladar el punto A(2, −1) con el vector v = (3, 4), se obtiene:",
+    "o": [
+     "(5, −5)",
+     "(−1, −5)",
+     "(5, 3)",
+     "(6, −4)"
+    ],
+    "c": 2
+   },
+   {
+    "t": "¿Cuáles son las coordenadas de la imagen del punto (3, −2) al reflejarlo respecto del eje X?",
+    "o": [
+     "(3, 2)",
+     "(−3, −2)",
+     "(−3, 2)",
+     "(−2, 3)"
+    ],
+    "c": 0
+   },
+   {
+    "t": "Al rotar 180° en torno al origen el punto (4, −1), se obtiene:",
+    "o": [
+     "(4, 1)",
+     "(−4, −1)",
+     "(1, 4)",
+     "(−4, 1)"
+    ],
+    "c": 3
+   },
+   {
+    "t": "El punto medio del segmento de extremos (−2, 6) y (4, 2) es:",
+    "o": [
+     "(3, 4)",
+     "(1, 4)",
+     "(2, 8)",
+     "(1, 2)"
+    ],
+    "c": 1
+   },
+   {
+    "t": "En un plano a escala 1 : 200, una pared mide 5 cm. ¿Cuánto mide en la realidad?",
+    "o": [
+     "1 m",
+     "2,5 m",
+     "40 m",
+     "10 m"
+    ],
+    "c": 3
+   },
+   {
+    "t": "Dos triángulos son semejantes. El menor tiene lados de 3, 4 y 5 cm y el lado menor del mayor mide 9 cm. ¿Cuánto mide el lado mayor del triángulo mayor?",
+    "o": [
+     "12 cm",
+     "15 cm",
+     "18 cm",
+     "20 cm"
+    ],
+    "c": 1
+   }
+  ]
+ },
+ {
+  "name": "Probabilidad y estadística",
+  "q": [
+   {
+    "t": "En un curso de 40 estudiantes, 10 prefieren fútbol. ¿Cuál es la frecuencia relativa de quienes prefieren fútbol?",
+    "o": [
+     "0,10",
+     "0,40",
+     "0,75",
+     "0,25"
+    ],
+    "c": 3
+   },
+   {
+    "t": "En una encuesta, 18 de 60 personas respondieron «sí». ¿Qué porcentaje es?",
+    "o": [
+     "18 %",
+     "33 %",
+     "30 %",
+     "42 %"
+    ],
+    "c": 2
+   },
+   {
+    "t": "El promedio de las notas 5,0; 6,0; 4,0 y 7,0 es:",
+    "o": [
+     "5,5",
+     "5,0",
+     "5,75",
+     "6,0"
+    ],
+    "c": 0
+   },
+   {
+    "t": "El promedio de cuatro números es 12. Si tres de ellos son 10, 11 y 15, ¿cuál es el cuarto?",
+    "o": [
+     "10",
+     "12",
+     "14",
+     "16"
+    ],
+    "c": 1
+   },
+   {
+    "t": "La mediana de los datos 3, 8, 5, 9, 4 es:",
+    "o": [
+     "4",
+     "5,8",
+     "8",
+     "5"
+    ],
+    "c": 3
+   },
+   {
+    "t": "Los datos 2, 3, 3, 5, 5, 5, 7 tienen moda:",
+    "o": [
+     "3",
+     "5",
+     "4",
+     "7"
+    ],
+    "c": 1
+   },
+   {
+    "t": "La mediana de los datos 2, 4, 6, 10, 12, 14 es:",
+    "o": [
+     "6",
+     "10",
+     "14",
+     "8"
+    ],
+    "c": 3
+   },
+   {
+    "t": "En un conjunto ordenado de 12 datos, ¿cuántos datos quedan, aproximadamente, bajo el primer cuartil (Q₁)?",
+    "o": [
+     "3",
+     "1",
+     "6",
+     "9"
+    ],
+    "c": 0
+   },
+   {
+    "t": "Una estudiante obtuvo un puntaje en el percentil 80. Esto significa que:",
+    "o": [
+     "respondió bien el 80 % de las preguntas",
+     "el 80 % obtuvo un puntaje mayor que el suyo",
+     "el 80 % de los evaluados obtuvo un puntaje menor o igual que el suyo",
+     "su puntaje fue exactamente 80 puntos"
+    ],
+    "c": 2
+   },
+   {
+    "t": "En un diagrama de cajón, la línea dentro de la caja representa:",
+    "o": [
+     "el promedio",
+     "la moda",
+     "la mediana",
+     "el rango"
+    ],
+    "c": 2
+   },
+   {
+    "t": "Si en un conjunto de datos Q₁ = 12 y Q₃ = 20, ¿cuánto vale el rango intercuartil?",
+    "o": [
+     "8",
+     "4",
+     "16",
+     "32"
+    ],
+    "c": 0
+   },
+   {
+    "t": "Para mostrar cómo cambió la temperatura de una ciudad cada hora durante un día, el gráfico más adecuado es el:",
+    "o": [
+     "circular",
+     "pictograma",
+     "diagrama de cajón",
+     "de líneas"
+    ],
+    "c": 3
+   },
+   {
+    "t": "Se lanza un dado común. ¿Cuál es la probabilidad de obtener un número mayor que 4?",
+    "o": [
+     "1/6",
+     "1/3",
+     "1/2",
+     "2/3"
+    ],
+    "c": 1
+   },
+   {
+    "t": "En una bolsa hay 4 fichas rojas, 3 azules y 5 verdes. Si se extrae una al azar, ¿cuál es la probabilidad de que NO sea azul?",
+    "o": [
+     "1/4",
+     "5/12",
+     "1/3",
+     "3/4"
+    ],
+    "c": 3
+   },
+   {
+    "t": "Se lanza un dado común. ¿Cuál es la probabilidad de obtener un número par o un múltiplo de 3?",
+    "o": [
+     "1/2",
+     "2/3",
+     "5/6",
+     "1/3"
+    ],
+    "c": 1
+   },
+   {
+    "t": "Se lanzan dos monedas. ¿Cuál es la probabilidad de obtener dos caras?",
+    "o": [
+     "1/2",
+     "1/3",
+     "1/4",
+     "3/4"
+    ],
+    "c": 2
+   },
+   {
+    "t": "La probabilidad de que llueva el sábado es 0,3 y la de que llueva el domingo es 0,5, de forma independiente. ¿Cuál es la probabilidad de que llueva ambos días?",
+    "o": [
+     "0,15",
+     "0,2",
+     "0,5",
+     "0,8"
+    ],
+    "c": 0
+   },
+   {
+    "t": "Una urna tiene 3 bolitas blancas y 2 negras. Se extraen 2 sin reponer. ¿Cuál es la probabilidad de que ambas sean blancas?",
+    "o": [
+     "3/10",
+     "9/25",
+     "3/5",
+     "1/5"
+    ],
+    "c": 0
+   },
+   {
+    "t": "Si P(A) = 0,4, P(B) = 0,5 y A y B son mutuamente excluyentes, ¿cuál es P(A o B)?",
+    "o": [
+     "0,2",
+     "0,7",
+     "0,9",
+     "1,0"
+    ],
+    "c": 2
+   },
+   {
+    "t": "En una tabla de frecuencias, un dato tiene frecuencia absoluta 15 y el total de datos es 50. ¿Cuál es su frecuencia relativa porcentual?",
+    "o": [
+     "15 %",
+     "30 %",
+     "3,33 %",
+     "35 %"
+    ],
+    "c": 1
+   }
+  ]
+ }
+];
 
+  const state = EJES.map(() => ({ answers: {}, done: false, correct: 0 }));
+  let cur = 0;
+
+  const tabsEl = document.getElementById("tabs");
   const container = document.getElementById("quiz-container");
-  const userAnswers = {};
+  const submitArea = document.getElementById("submit-area");
+  const resultsBox = document.getElementById("results-box");
+  const letters = ["A", "B", "C", "D"];
 
-  function loadQuiz() {
+  function answeredCount(i) { return Object.keys(state[i].answers).length; }
+
+  function buildTabs() {
+    tabsEl.innerHTML = "";
+    EJES.forEach((e, i) => {
+      const b = document.createElement("button");
+      b.type = "button";
+      b.className = "tab";
+      b.setAttribute("role", "tab");
+      const n = document.createElement("span");
+      n.className = "tab-name";
+      n.textContent = e.name;
+      const c = document.createElement("span");
+      c.className = "tab-cnt";
+      b.append(n, c);
+      b.addEventListener("click", () => switchEje(i));
+      tabsEl.appendChild(b);
+    });
+    updateTabs();
+  }
+
+  function updateTabs() {
+    Array.from(tabsEl.children).forEach((b, i) => {
+      b.classList.toggle("on", i === cur);
+      b.setAttribute("aria-selected", i === cur ? "true" : "false");
+      const total = EJES[i].q.length;
+      b.querySelector(".tab-cnt").textContent = state[i].done
+        ? "✓ " + state[i].correct + " de " + total + " correctas"
+        : answeredCount(i) + " de " + total + " respondidas";
+    });
+  }
+
+  function updateProgress() {
+    const total = EJES[cur].q.length;
+    document.getElementById("progress").textContent = "Respondidas: " + answeredCount(cur) + " de " + total;
+  }
+
+  function renderEje() {
+    const e = EJES[cur], st = state[cur];
+    document.getElementById("eje-name").textContent = e.name;
+    document.getElementById("eje-info").textContent = e.q.length + " preguntas";
     container.innerHTML = "";
-    questions.forEach((q, index) => {
+
+    e.q.forEach((q, qi) => {
       const card = document.createElement("div");
       card.className = "question-card";
-      
+
       const num = document.createElement("div");
       num.className = "q-number";
-      num.textContent = `PREGUNTA ${index + 1} DE 10`;
-      
+      num.textContent = "PREGUNTA " + (qi + 1) + " DE " + e.q.length;
+
       const text = document.createElement("div");
       text.className = "q-text";
-      text.textContent = q.text;
-      
+      text.textContent = q.t;
+
       const optionsDiv = document.createElement("div");
       optionsDiv.className = "options";
-      
-      q.options.forEach((opt, optIndex) => {
+
+      q.o.forEach((opt, oi) => {
         const btn = document.createElement("button");
+        btn.type = "button";
         btn.className = "option-btn";
-        btn.textContent = opt;
-        btn.dataset.question = index;
-        btn.dataset.option = optIndex;
-        
-        btn.addEventListener("click", () => selectOption(index, optIndex, optionsDiv));
+        const l = document.createElement("span");
+        l.className = "letter";
+        l.textContent = letters[oi] + ")";
+        const tx = document.createElement("span");
+        tx.textContent = opt;
+        btn.append(l, tx);
+
+        if (st.done) {
+          btn.disabled = true;
+          if (oi === q.c) btn.classList.add("correct");
+          else if (oi === st.answers[qi]) btn.classList.add("incorrect");
+        } else {
+          if (st.answers[qi] === oi) btn.classList.add("sel");
+          btn.addEventListener("click", () => selectOption(qi, oi, optionsDiv));
+        }
         optionsDiv.appendChild(btn);
       });
-      
+
       card.append(num, text, optionsDiv);
       container.appendChild(card);
     });
+
+    if (st.done) {
+      submitArea.style.display = "none";
+      showResults();
+    } else {
+      submitArea.style.display = "block";
+      resultsBox.style.display = "none";
+      updateProgress();
+    }
+    updateTabs();
   }
 
-  function selectOption(qIndex, optIndex, optionsDiv) {
-    userAnswers[qIndex] = optIndex;
-    const buttons = optionsDiv.querySelectorAll(".option-btn");
-    buttons.forEach((b, idx) => {
-      if (idx === optIndex) {
-        b.style.background = "var(--soft)";
-        b.style.borderColor = "var(--burdeo)";
-        b.style.fontWeight = "600";
-      } else {
-        b.style.background = "var(--soft)";
-        b.style.borderColor = "var(--line)";
-        b.style.fontWeight = "400";
-      }
-    });
+  function selectOption(qi, oi, optionsDiv) {
+    const st = state[cur];
+    if (st.done) return;
+    st.answers[qi] = oi;
+    optionsDiv.querySelectorAll(".option-btn").forEach((b, i) => b.classList.toggle("sel", i === oi));
+    updateProgress();
+    updateTabs();
   }
 
-  function evaluateQuiz() {
-    if (Object.keys(userAnswers).length < questions.length) {
-      alert("Por favor responde todas las preguntas antes de ver los resultados.");
+  function showResults() {
+    const total = EJES[cur].q.length, c = state[cur].correct;
+    // Puntaje referencial: 0 correctas = 150 pts, todas correctas = 1000 pts
+    const score = Math.round(150 + (c / total) * 850);
+    document.getElementById("score-text").textContent = "Eje " + EJES[cur].name + ": obtuviste " + c + " respuestas correctas de " + total + ".";
+    document.getElementById("score-number").textContent = score + " puntos";
+    resultsBox.style.display = "block";
+  }
+
+  function evaluateEje() {
+    const e = EJES[cur], st = state[cur];
+    const faltan = [];
+    e.q.forEach((q, qi) => { if (st.answers[qi] === undefined) faltan.push(qi); });
+    if (faltan.length > 0) {
+      alert("Te faltan " + faltan.length + " pregunta(s) por responder en este eje. Te llevaré a la primera que falta.");
+      container.children[faltan[0]].scrollIntoView({ behavior: "smooth", block: "center" });
       return;
     }
-
-    let correctCount = 0;
-    questions.forEach((q, index) => {
-      const card = container.children[index];
-      const buttons = card.querySelectorAll(".option-btn");
-      const userChoice = userAnswers[index];
-
-      buttons.forEach((b, optIndex) => {
-        b.disabled = true;
-        if (optIndex === q.correct) {
-          b.classList.add("correct");
-        } else if (optIndex === userChoice && userChoice !== q.correct) {
-          b.classList.add("incorrect");
-        }
-      });
-
-      if (userChoice === q.correct) {
-        correctCount++;
-      }
-    });
-
-    // Cálculo proporcional simulado a la escala PAES (150 a 1000 puntos)
-    // 0 correctas = 150 pts, 10 correctas = 1000 pts
-    const simulatedScore = Math.round(150 + (correctCount / 10) * 850);
-
-    document.getElementById("submit-area").style.display = "none";
-    const resultsBox = document.getElementById("results-box");
-    resultsBox.style.display = "block";
-    
-    document.getElementById("score-text").textContent = `Obtuviste ${correctCount} respuestas correctas de un total de 10.`;
-    document.getElementById("score-number").textContent = `${simulatedScore} puntos`;
-    
-    window.scrollTo({ top: resultsBox.offsetTop - 50, behavior: 'smooth' });
+    let correct = 0;
+    e.q.forEach((q, qi) => { if (st.answers[qi] === q.c) correct++; });
+    st.correct = correct;
+    st.done = true;
+    renderEje();
+    window.scrollTo({ top: resultsBox.offsetTop - 50, behavior: "smooth" });
   }
 
-  function resetQuiz() {
-    Object.keys(userAnswers).forEach(key => delete userAnswers[key]);
-    document.getElementById("submit-area").style.display = "block";
-    document.getElementById("results-box").style.display = "none";
-    loadQuiz();
-    window.scrollTo({ top: 0, behavior: 'smooth' });
+  function resetEje() {
+    state[cur] = { answers: {}, done: false, correct: 0 };
+    renderEje();
+    window.scrollTo({ top: 0, behavior: "smooth" });
   }
 
-  loadQuiz();
+  function switchEje(i) {
+    cur = i;
+    renderEje();
+    window.scrollTo({ top: tabsEl.offsetTop - 12, behavior: "smooth" });
+  }
+
+  function nextEje() { switchEje((cur + 1) % EJES.length); }
+
+  buildTabs();
+  renderEje();
 </script>
 
 </body>
